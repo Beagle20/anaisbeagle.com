@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Entreprise - BEAGLE Jacky-Anaïs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --marron-clair: #D2B48C;
+      --marron-moyen: #A67C52;
+      --marron-fonce: #8B4513;
+      --beige: #F5DEB3;
+      --beige-clair: #FAF0E6;
+      --blanc: #FFFFFF;
+      --noir: #333333;
+      --shadow-small: 0 2px 5px rgba(0,0,0,0.1);
+      --shadow-medium: 0 5px 15px rgba(0,0,0,0.2);
+      --shadow-large: 0 10px 30px rgba(0,0,0,0.3);
+      --texte-fonce: #5D4A3A;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: var(--beige-clair);
+      color: var(--noir);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* TOP NAVIGATION - Style identique aux pages Contact, E5 et Veille */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(5px);
+      padding: 15px 30px;
+      display: flex;
+      gap: 20px;
+      z-index: 999;
+      box-shadow: var(--shadow-small);
+      border-bottom-left-radius: 10px;
+    }
+
+    .top-nav a {
+      color: var(--marron-fonce);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .top-nav a:hover {
+      color: #8B4513;
+      background: rgba(210, 180, 140, 0.2);
+    }
+
+    /* Style pour le lien actif */
+    .top-nav a[href="entreprise.html"] {
+      background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen));
+      color: var(--texte-fonce);
+      box-shadow: var(--shadow-small);
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                  url('photo/stage.jpg') no-repeat center center/cover;
+      height: 60vh;
+      min-height: 400px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      margin-bottom: 3rem;
+      margin-top: 0;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      padding: 0 2rem;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--blanc);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: var(--marron-clair);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Navigation secondaire (liens internes stages) */
+    .stage-nav {
+      position: sticky;
+      top: 60px;
+      z-index: 998;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--marron-clair);
+    }
+
+    .stage-nav-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .stage-nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .stage-nav-links a {
+      text-decoration: none;
+      color: var(--marron-fonce);
+      font-weight: 600;
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1px solid var(--marron-clair);
+    }
+
+    .stage-nav-links a:hover {
+      background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen));
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .stage-nav-links i {
+      color: var(--marron-moyen);
+    }
+
+    .stage-nav-links a:hover i {
+      color: white;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+      padding: 0 1rem;
+    }
+
+    .stage-selection {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .stage-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .stage-tab {
+      background: var(--blanc);
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(139, 69, 19, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 3px solid transparent;
+      text-align: center;
+      width: 280px;
+    }
+
+    .stage-tab:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(139, 69, 19, 0.2);
+    }
+
+    .stage-tab.active {
+      border-color: var(--marron-moyen);
+      background: linear-gradient(135deg, var(--beige-clair), var(--beige));
+    }
+
+    .stage-tab i {
+      font-size: 2.5rem;
+      color: var(--marron-moyen);
+      margin-bottom: 1rem;
+    }
+
+    .stage-tab h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--marron-fonce);
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+    }
+
+    .stage-tab p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .stage-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .stage-content.active {
+      display: block;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      padding: 2.5rem;
+      background-color: var(--blanc);
+      border-radius: 1rem;
+      box-shadow: 0 0.5rem 1.5rem rgba(139, 69, 19, 0.1);
+      border-left: 0.5rem solid var(--marron-clair);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    section:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0 0.8rem 2rem rgba(139, 69, 19, 0.15);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--marron-fonce);
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8rem;
+      height: 0.2rem;
+      background: linear-gradient(90deg, var(--marron-clair), var(--marron-moyen));
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      color: var(--marron-moyen);
+      margin: 2rem 0 1.2rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    h3::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 70%;
+      width: 0.3rem;
+      background: var(--marron-clair);
+      border-radius: 0.2rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    ul {
+      padding-left: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .logo-img {
+      height: 6rem;
+      transition: transform 0.3s ease-out;
+      object-fit: contain;
+      filter: drop-shadow(0 0.2rem 0.4rem rgba(0, 0, 0, 0.2));
+    }
+
+    .logo-img:hover {
+      transform: scale(1.08);
+    }
+
+    .btn {
+      background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen));
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1.1rem;
+      display: inline-block;
+      margin-top: 1.5rem;
+      box-shadow: 0 0.3rem 0.6rem rgba(139, 69, 19, 0.3);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.05rem;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, var(--marron-moyen), var(--marron-fonce));
+      transform: translateY(-0.2rem);
+      box-shadow: 0 0.5rem 1rem rgba(139, 69, 19, 0.4);
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .glpi-gallery-large {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      margin: 3rem 0;
+      align-items: stretch;
+    }
+
+    .glpi-card-large {
+      border-radius: 0.8rem;
+      overflow: hidden;
+      box-shadow: 0 0.4rem 1rem rgba(0,0,0,0.1);
+      background: white;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .glpi-card-large:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: 0 0.8rem 1.5rem rgba(0,0,0,0.15);
+    }
+
+    .glpi-image-large {
+      width: 100%;
+      height: 350px;
+      object-fit: contain;
+      background-color: #f8f8f8;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--beige);
+      transition: transform 0.5s ease;
+    }
+
+    .zoom-container {
+      overflow: hidden;
+      border-radius: 0.8rem;
+      height: 350px;
+    }
+
+    .zoom-container:hover .glpi-image-large {
+      transform: scale(1.1);
+    }
+
+    .image-card {
+      border-radius: 0.8rem;
+      overflow: hidden;
+      box-shadow: 0 0.4rem 1rem rgba(0,0,0,0.1);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      background: white;
+    }
+
+    .image-card:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: 0 0.8rem 1.5rem rgba(0,0,0,0.15);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--beige);
+    }
+
+    .image-caption {
+      padding: 1.2rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--marron-moyen);
+      background-color: var(--beige-clair);
+      font-weight: 600;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .info-card {
+      background: var(--beige-clair);
+      padding: 1.5rem;
+      border-radius: 0.8rem;
+      border-left: 0.3rem solid var(--marron-moyen);
+      box-shadow: 0 0.3rem 0.6rem rgba(0,0,0,0.05);
+      transition: all 0.3s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.1);
+    }
+
+    .info-card h4 {
+      color: var(--marron-fonce);
+      margin: 0 0 1rem;
+      font-size: 1.2rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+      align-items: stretch;
+    }
+
+    .specs-card {
+      background: var(--beige-clair);
+      padding: 1.5rem;
+      border-radius: 0.8rem;
+      border-top: 0.3rem solid var(--marron-moyen);
+      box-shadow: 0 0.3rem 0.6rem rgba(0,0,0,0.05);
+      transition: all 0.3s;
+    }
+
+    .specs-card:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.1);
+    }
+
+    .specs-card h4 {
+      color: var(--marron-fonce);
+      margin: 0 0 1rem;
+      font-size: 1.2rem;
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+    }
+
+    .specs-card ul {
+      padding-left: 1.5rem;
+    }
+
+    .specs-card li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      list-style-type: none;
+      padding-left: 1.5rem;
+    }
+
+    .specs-card li::before {
+      content: "•";
+      color: var(--marron-moyen);
+      font-size: 1.5rem;
+      position: absolute;
+      left: 0;
+      top: -0.3rem;
+    }
+
+    .highlight {
+      background-color: var(--beige);
+      padding: 2rem;
+      border-radius: 0.8rem;
+      border-left: 0.4rem solid var(--marron-moyen);
+      margin: 2rem 0;
+      box-shadow: inset 0 0 1rem rgba(139, 69, 19, 0.05);
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--marron-moyen), var(--marron-fonce));
+      color: white;
+      text-align: center;
+      padding: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--marron-clair);
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1024px) {
+      .glpi-gallery-large {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .glpi-image-large {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .top-nav {
+        padding: 10px 20px;
+        gap: 15px;
+      }
+      
+      .top-nav a {
+        font-size: 0.85rem;
+        padding: 4px 8px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        height: 50vh;
+        min-height: 350px;
+        margin-top: 50px;
+      }
+      
+      .stage-nav {
+        top: 50px;
+      }
+      
+      .stage-nav-links {
+        gap: 1rem;
+      }
+      
+      .stage-nav-links a {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+      }
+      
+      .stage-tabs {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      section {
+        padding: 1.8rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .image-gallery, .glpi-gallery-large {
+        grid-template-columns: 1fr;
+      }
+      
+      .presentation-container {
+        flex-direction: column;
+      }
+      
+      .presentation-images {
+        width: 100%;
+        max-width: 30rem;
+        margin: 0 auto;
+      }
+      
+      .top-nav {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        width: 100%;
+        border-radius: 0;
+        border-bottom-left-radius: 0;
+        padding: 10px 15px;
+        gap: 8px;
+      }
+      
+      .top-nav a {
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        margin-top: 80px;
+      }
+      
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .stage-tab {
+        width: 100%;
+        max-width: 300px;
+        padding: 1.5rem;
+      }
+      
+      .logo-img {
+        height: 5rem;
+      }
+      
+      .glpi-image-large {
+        height: 250px;
+      }
+      
+      .top-nav {
+        flex-wrap: wrap;
+        padding: 8px 10px;
+      }
+      
+      .top-nav a {
+        font-size: 0.75rem;
+        padding: 3px 6px;
+      }
+      
+      .stage-nav {
+        top: 80px;
+      }
+      
+      .stage-nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .stage-nav-links a {
+        width: 200px;
+        justify-content: center;
+      }
+    }
+
+    .presentation-container {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      margin: 2.5rem 0;
+    }
+
+    .presentation-text {
+      flex: 1;
+    }
+
+    .presentation-images {
+      width: 25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* -------- TABLEAU COMPARAISON -------- */
+    .comparaison-table-simple {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .comparaison-table-simple table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    .comparaison-table-simple th {
+      background: var(--marron-moyen);
+      color: white;
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .comparaison-table-simple td {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .comparaison-table-simple tr:nth-child(even) {
+      background: var(--beige-clair);
+    }
+
+    .comparaison-table-simple td:first-child {
+      font-weight: 600;
+      color: var(--marron-fonce);
+    }
+
+    /* -------- STAGE2 SECTION : LOGOS BIEN AJUSTÉS -------- */
+    .stage2-section .specs-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 25px 15px;
+      height: 100%;
+    }
+
+    .stage2-section .tool-img {
+      height: 70px;
+      width: auto;
+      max-width: 120px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .stage2-section .specs-card h4 {
+      margin: 10px 0;
+      color: var(--marron-fonce);
+      font-size: 1.3rem;
+      min-height: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stage2-section .specs-card h4 i {
+      margin-bottom: 8px;
+      font-size: 1.4rem;
+      color: var(--marron-moyen);
+    }
+
+    .stage2-section .specs-card p {
+      margin-top: 10px;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Responsive pour les logos */
+    @media (max-width: 768px) {
+      .stage2-section .tool-img {
+        height: 60px;
+        max-width: 100px;
+      }
+      
+      .stage2-section .specs-card {
+        padding: 20px 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stage2-section .tool-img {
+        height: 50px;
+        max-width: 90px;
+      }
+      
+      .stage2-section .specs-card h4 {
+        font-size: 1.1rem;
+        min-height: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top navigation - style identique à Contact, E5 et Veille -->
+  <nav class="top-nav" aria-label="Navigation supérieure">
+    <a href="jbportfolio.html">Accueil</a>
+    <a href="entreprise.html">Entreprise</a>
+    <a href="realisation.html">Réalisations professionnelles/Compétences</a>
+    <a href="veille.html">Veille Technologique</a>
+    <a href="E5.html">E5</a>
+    <a href="Contact.html">Contact</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Mes Expériences Professionnelles</h1>
+      <p>Année 2024/2026</p>
+    </div>
+  </header>
+
+  <!-- Navigation secondaire (liens internes stages) -->
+  <nav class="stage-nav">
+    <div class="stage-nav-container">
+      <ul class="stage-nav-links">
+        <li><a href="#stage1"><i class="fas fa-building"></i> Stage 1 - CTM</a></li>
+        <li><a href="#stage2"><i class="fas fa-city"></i> Stage 2 - ITHI</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="stage-selection">
+      <h2>Mes Deux Stages</h2>
+      <p>Sélectionnez un stage pour voir les détails</p>
+      
+      <div class="stage-tabs">
+        <div class="stage-tab active" data-target="stage1-content">
+          <i class="fas fa-city"></i>
+          <h3>CTM</h3>
+          <p><br>Mai - Juin 2025</p>
+        </div>
+        
+        <div class="stage-tab" data-target="stage2-content">
+          <i class="fas fa-city"></i>
+          <h3>ITHI</h3>
+          <p><br>Janvier - Février 2026</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 1 CONTENT -->
+    <div id="stage1-content" class="stage-content active">
+      <section id="stage1">
+        <h2>Stage 1 : Centre Technique Municipal de Montigny-lès-Cormeilles</h2>
+        <div class="logo-container">
+          <img src="photo/logo.png" alt="Logo de Montigny-lès-Cormeilles" class="logo-img">
+        </div>
+        <p>Montigny-lès-Cormeilles est une commune dynamique du Val-d'Oise comptant environ 23 000 habitants. Le Centre Technique Municipal assure l'entretien et la maintenance des infrastructures de la ville.</p>
+        
+        <div class="presentation-container">
+          <div class="presentation-text">
+            <p>La ville offre un cadre de vie agréable avec de nombreux espaces verts et une proximité avec Paris.</p>
+          </div>
+          <div class="presentation-images">
+            <div class="image-card">
+              <img src="photo/carte.png" alt="Carte de la ville">
+              <div class="image-caption">Plan de Montigny-lès-Cormeilles</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Le Centre Technique Municipal (CTM)</h2>
+        <p>Le CTM assure l'entretien et la maintenance des infrastructures de la ville avec une équipe pluridisciplinaire.</p>
+        
+        <div class="specs-grid">
+          <div class="specs-card">
+            <h4>Voirie</h4>
+            <ul>
+              <li>Entretien des routes</li>
+              <li>Signalisation</li>
+              <li>Déneigement</li>
+            </ul>
+          </div>
+          <div class="specs-card">
+            <h4>Espaces Verts</h4>
+            <ul>
+              <li>Tonte et plantations</li>
+              <li>Élagage</li>
+              <li>Arrosage</li>
+            </ul>
+          </div>
+          <div class="specs-card">
+            <h4>Bâtiments</h4>
+            <ul>
+              <li>Maintenance écoles</li>
+              <li>Rénovation</li>
+              <li>Sécurité</li>
+            </ul>
+          </div>
+          <div class="specs-card">
+            <h4>Propreté</h4>
+            <ul>
+              <li>Ramassage déchets</li>
+              <li>Nettoyage voirie</li>
+              <li>Enlèvement encombrants</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Service Informatique du CTM</h2>
+        <center><p>Le service informatique supporte l'ensemble des services techniques avec des solutions numériques adaptées.</p></center>
+        
+        <div class="highlight">
+          <h3>GLPI - Gestion de Parc Informatique</h3>
+          <center><p>Outil central de gestion des ressources informatiques et de suivi des interventions.</p></center>
+          
+          <div class="glpi-gallery-large">
+            <div class="glpi-card-large">
+              <div class="zoom-container">
+                <img src="glpi.png" alt="Interface GLPI" class="glpi-image-large">
+              </div>
+              <div class="image-caption">Interface complète de GLPI</div>
+            </div>
+            <div class="glpi-card-large">
+              <div class="zoom-container">
+                <img src="glpi.gif" alt="Démonstration GLPI" class="glpi-image-large">
+              </div>
+              <div class="image-caption">Processus de ticketing</div>
+            </div>
+          </div>
+          
+          <center><a href="https://glpi-project.org/fr/" target="_blank" class="btn">Voir plus de détails sur GLPI</a></center>
+        </div>
+
+        <h3>Infrastructure Technique</h3>
+        
+        <div class="specs-grid">
+          <div class="specs-card">
+            <h4>Réseau</h4>
+            <ul>
+              <li>LAN/Wi-Fi sécurisé</li>
+              <li>Serveurs locaux</li>
+              <li>Pare-feu Sophos</li>
+            </ul>
+          </div>
+          <div class="specs-card">
+            <h4>Sécurité</h4>
+            <ul>
+              <li>Antivirus centralisé</li>
+              <li>Sauvegardes quotidiennes</li>
+              <li>Audits réguliers</li>
+            </ul>
+          </div>
+          <div class="specs-card">
+            <h4>Logiciels</h4>
+            <ul>
+              <li>GLPI</li>
+              <li>Outils cartographiques</li>
+              <li>Gestion technique</li>
+            </ul>
+          </div>
+          <div class="specs-card">
+            <h4>Support</h4>
+            <ul>
+              <li>Helpdesk interne</li>
+              <li>Formation utilisateurs</li>
+              <li>Maintenance préventive</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Stage Informatique au Centre Technique Municipal</h2>
+        <p>Dans le cadre de mon BTS SIO, j'ai effectué un stage au <strong>Centre Technique Municipal</strong> de Montigny-lès-Cormeilles.</p>
+
+        <h3>1. Rôle du Service Informatique</h3>
+        <ul>
+          <li><strong>Maintenance du parc informatique</strong></li>
+          <li><strong>Support technique</strong> aux agents municipaux</li>
+          <li><strong>Sécurisation des accès</strong></li>
+          <li><strong>Gestion des tickets</strong> via GLPI</li>
+        </ul>
+
+        <h3>2. Missions Réalisées</h3>
+        <ul>
+          <li>Installation et configuration de postes</li>
+          <li>Dépannage réseau</li>
+          <li><strong>Déplacements réguliers</strong> dans les établissements municipaux</li>
+          <li>Participation à la mise à jour de GLPI</li>
+        </ul>
+
+        <h3>3. Outils Utilisés</h3>
+        <ul>
+          <li>GLPI (gestion de parc + ticketing)</li>
+          <li>Réseau local</li>
+          <li>DHCP, Active Directory</li>
+          <li>Windows Server</li>
+        </ul>
+
+        <div class="highlight">
+          <p><strong>Note personnelle :</strong> Ce stage m'a permis de développer mes compétences techniques en environnement réel et de travailler en relation directe avec les agents de la commune.</p>
+        </div>
+		<center style="margin-top: 2rem;">
+          <a href="Rapport de stage.pdf" target="_blank" class="btn">
+            <i class="fas fa-download"></i> Voir le Rapport de Stage
+          </a>
+        </center>
+      </section>
+    </div>
+
+    <!-- STAGE 2 CONTENT -->
+    <div id="stage2-content" class="stage-content">
+      <section id="stage2">
+        <h2>Stage 2 : ITHI - Informatique Télécoms Hébergement et Infogérance</h2>
+        <div class="logo-container">
+          <img src="photo/informatique_ithi.png" alt="Logo ITHI" class="logo-img">
+        </div>
+        <p><strong>ITHI</strong> est une <strong>Entreprise de Services Numériques (ESN)</strong> fondée en 2006, spécialisée dans l'accompagnement des <strong>TPE, PME et collectivités</strong> dans leur transformation numérique.</p>
+        
+        <div class="highlight">
+          <h3>Philosophie d'entreprise</h3>
+          <p>ITHI cherche à construire un service <strong>réactif et personnalisé</strong> en combinant expertise technique et compréhension des enjeux commerciaux.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Domaines d'Activité</h2>
+        <p>ITHI propose une gamme complète de services interconnectés :</p>
+        
+        <div class="specs-grid">
+          <div class="specs-card">
+            <h4><i class="fas fa-tools"></i> Gestion et Support</h4>
+            <ul>
+              <li>Maintenance et supervision</li>
+              <li>Gestion des tickets</li>
+              <li>Support utilisateurs</li>
+            </ul>
+          </div>
+          <div class="specs-card">
+            <h4><i class="fas fa-cloud"></i> Hébergement Cloud</h4>
+            <ul>
+              <li>Serveurs virtuels</li>
+              <li>Messagerie hébergée</li>
+              <li>Sauvegardes externalisées</li>
+            </ul>
+          </div>
+          <div class="specs-card">
+            <h4><i class="fas fa-shield-alt"></i> Cybersécurité</h4>
+            <ul>
+              <li>Antivirus ESET</li>
+              <li>Firewalls pfSense</li>
+              <li>Conformité RGPD</li>
+            </ul>
+          </div>
+          <div class="specs-card">
+            <h4><i class="fas fa-network-wired"></i> Réseaux</h4>
+            <ul>
+              <li>Téléphonie IP</li>
+              <li>Réseaux LAN/WAN</li>
+              <li>Configuration équipements</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage2-section">
+        <h2>Outils et Technologies</h2>
+
+        <div class="specs-grid">
+          <div class="specs-card stage2-card">
+            <img src="photo/eset.png" alt="ESET Logo" class="tool-img">
+            <h4>ESET</h4>
+            <p>Solution antivirus centralisée pour la protection des postes et serveurs. Formation et certification obtenue durant le stage.</p>
+          </div>
+
+          <div class="specs-card stage2-card">
+            <img src="photo/pfsense.png" alt="pfSense Logo" class="tool-img">
+            <h4> pfSense</h4>
+            <p>Pare-feu open source pour la sécurisation des réseaux. Configuration de règles, filtrage et sécurisation du routage.</p>
+          </div>
+
+          <div class="specs-card stage2-card">
+            <img src="photo/tactical.png" alt="Tactical RMM Logo" class="tool-img">
+            <h4> Tactical RMM</h4>
+            <p>Plateforme de supervision et d'assistance à distance pour la maintenance proactive des postes clients.</p>
+          </div>
+
+          <div class="specs-card stage2-card">
+            <img src="photo/sxipher.jpg" alt="SXIPHER Logo" class="tool-img">
+            <h4> SXIPHER</h4>
+            <p>Solution de sécurisation des accès et des données testée en interne et chez les clients.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage2-section">
+        <h2>Mes Missions et Réalisations</h2>
+        
+        <h3>1. Cybersécurité et Surveillance</h3>
+        <ul>
+          <li><strong>Formation et certification ESET</strong> : Acquisition des compétences sur la solution antivirus</li>
+          <li><strong>Analyse de l'environnement de sécurité</strong> : Étude du déploiement ESET au sein de l'entreprise</li>
+          <li><strong>Script d'audit des connexions</strong> : Développement et déploiement d'un script PowerShell pour tracer les accès</li>
+          <li><strong>Listing des machines vulnérables</strong> : Identification des postes avec logiciels malveillants non chiffrés</li>
+        </ul>
+
+        <h3>2. Administration Système et Réseau</h3>
+        <ul>
+          <li><strong>Configuration de pfSense</strong> : Mise en place de règles de filtrage et de pare-feu</li>
+          <li><strong>Gestion du proxy d'entreprise</strong> : Intégration et vérification de la connectivité</li>
+          <li><strong>Audit réseau</strong> : Analyse des routeurs et switchs pour évaluation de migration vers OpenWRT</li>
+          <li><strong>Installation d'un serveur</strong> : Configuration d'un nouveau serveur avec Windows 11 Pro</li>
+        </ul>
+
+        <h3>3. Support Technique et Interventions</h3>
+        <ul>
+          <li><strong>Utilisation de Tactical RMM</strong> : Supervision et dépannage à distance des postes clients</li>
+          <li><strong>Dépannage matériel</strong> : Intervention sur pannes complexes (carte Wi-Fi, carte graphique)</li>
+          <li><strong>Récupération de données</strong> : Utilisation de la clé bootable Medicat USB</li>
+          <li><strong>Tests de solutions</strong> : Installation et tests de SXIPHER en interne et chez les clients</li>
+        </ul>
+
+        <h3>4. Participation Événementielle</h3>
+        <ul>
+          <li><strong>Salon IT Partners 2026</strong> : Participation aux journées professionnelles à Paris La Défense Arena</li>
+          <li><strong>Réseautage professionnel</strong> : Échanges avec fournisseurs et experts du secteur</li>
+        </ul>
+      </section>
+      
+      <section>
+        <div class="highlight">
+          <h3>Note personnelle</h3>
+          <p>Ce stage chez ITHI m'a permis de <strong>consolider mes compétences en cybersécurité et administration réseau</strong> dans un contexte professionnel réel. La participation au salon IT Partners 2026 a élargi ma vision du secteur et des technologies émergentes.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Différents contextes et une progression continue</h2>
+        
+
+        <div class="comparaison-table-simple">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Contexte municipal</th>
+                <th>Contexte ESN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Type d'organisation</strong></td>
+                <td>Service public</td>
+                <td>Entreprise privée</td>
+              </tr>
+              <tr>
+                <td><strong>Portée des missions</strong></td>
+                <td>Environnement unique</td>
+                <td>Multiples clients</td>
+              </tr>
+              <tr>
+                <td><strong>Focus principal</strong></td>
+                <td>Support utilisateur</td>
+                <td>Sécurité et automatisation</td>
+              </tr>
+              <tr>
+                <td><strong>Niveau technique</strong></td>
+                <td>Opérationnel (1-2)</td>
+                <td>Spécialisé (2-3)</td>
+              </tr>
+              <tr>
+                <td><strong>Relation client</strong></td>
+                <td>Utilisateurs internes</td>
+                <td>Clients externes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="text-align: center; padding: 1.5rem; background: white; border-radius: 10px; border: 1px solid var(--beige); margin-top: 2rem;">
+          <h2 style="color: var(--marron-fonce); margin-bottom: 1rem;">Synthèse</h2>
+          <p>Ces deux stages m'ont permis d'expérimenter différents environnements professionnels et d'élargir progressivement mes compétences techniques.</p>
+        </div>
+        
+        <center style="margin-top: 2rem;">
+          <a href="Rapport de stage.pdf" target="_blank" class="btn">
+            <i class="fas fa-download"></i> Voir le Rapport de Stage
+          </a>
+        </center>
+      </section>
+    </div>
+  </div>
+
+  <footer id="contact">
+    <div class="footer-content">
+      <p>© Copyright 2026 BEAGLE Jacky-Anaïs</strong></p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.stage-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.stage-tab').forEach(t => {
+          t.classList.remove('active');
+        });
+        this.classList.add('active');
+        
+        document.querySelectorAll('.stage-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        
+        const targetId = this.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+        
+        document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    document.querySelectorAll('.stage-nav-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        if (this.getAttribute('href') === '#stage1') {
+          document.querySelector('.stage-tab[data-target="stage1-content"]').click();
+        } else if (this.getAttribute('href') === '#stage2') {
+          document.querySelector('.stage-tab[data-target="stage2-content"]').click();
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Veille Cybersécurité - Portfolio BEAGLE Jacky-Anaïs</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --marron-clair: #D2B48C;
@@ -16,581 +17,158 @@
       --shadow-small: 0 2px 5px rgba(0,0,0,0.1);
       --shadow-medium: 0 5px 15px rgba(0,0,0,0.2);
       --shadow-large: 0 10px 30px rgba(0,0,0,0.3);
+      --color-2024: #c0392b;
+      --color-2025: #e67e22;
+      --color-2026: #27ae60;
     }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Raleway', sans-serif; background: var(--beige-clair); color: #333; line-height: 1.6; }
 
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Raleway', sans-serif;
-      background: var(--beige-clair);
-      color: #333;
-      line-height: 1.6;
-    }
-
-    /* TOP NAVIGATION - Style identique aux pages Contact et E5 */
     .top-nav {
-      position: fixed;
-      top: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(5px);
-      padding: 15px 30px;
-      display: flex;
-      gap: 20px;
-      z-index: 99;
-      box-shadow: var(--shadow-small);
-      border-bottom-left-radius: 10px;
+      position: fixed; top: 0; right: 0;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(5px);
+      padding: 15px 30px; display: flex; gap: 20px;
+      z-index: 99; box-shadow: var(--shadow-small); border-bottom-left-radius: 10px;
     }
-
-    .top-nav a {
-      color: var(--marron-fonce);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 5px 10px;
-      border-radius: 5px;
-      transition: all 0.3s;
-      font-size: 0.95rem;
-    }
-
-    .top-nav a:hover {
-      color: #8B4513;
-      background: rgba(210, 180, 140, 0.2);
-    }
-
-    /* Style pour le lien actif */
-    .top-nav a[href="veille.html"] {
-      background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen));
-      color: var(--texte-fonce);
-      box-shadow: var(--shadow-small);
-    }
+    .top-nav a { color: var(--marron-fonce); text-decoration: none; font-weight: 600; padding: 5px 10px; border-radius: 5px; transition: all 0.3s; font-size: 0.95rem; }
+    .top-nav a:hover { background: rgba(210,180,140,0.2); }
+    .top-nav a[href="veille.html"] { background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen)); color: white; }
 
     header {
       background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen));
-      padding: 3rem 1rem;
-      text-align: center;
-      box-shadow: var(--shadow-large);
-      color: white;
-      position: relative;
-      overflow: hidden;
-      margin-top: 60px; /* Pour laisser de la place à la navbar fixe */
+      padding: 3.5rem 1rem 3rem; text-align: center;
+      box-shadow: var(--shadow-large); color: white; position: relative; overflow: hidden; margin-top: 60px;
     }
+    header::before { content: ""; position: absolute; top: -60px; right: -60px; width: 350px; height: 350px; background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%); z-index: 0; }
+    header h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: white; text-shadow: 0 2px 6px rgba(100,40,0,0.3); position: relative; z-index: 1; }
+    header p { font-size: 1.2rem; opacity: 0.93; margin-top: 0.8rem; position: relative; z-index: 1; }
+    .header-badges { margin-top: 18px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+    .header-badges span { background: rgba(255,255,255,0.22); padding: 6px 18px; border-radius: 30px; font-size: 0.9rem; }
 
-    header::before {
-      content: "";
-      position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, var(--beige) 0%, transparent 70%);
-      opacity: 0.2;
-      z-index: 0;
-    }
+    .years-bar { background: white; padding: 1rem 2rem; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: var(--shadow-small); flex-wrap: wrap; }
+    .year-pill { padding: 8px 26px; border-radius: 30px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+    .year-pill.y2024 { background: var(--color-2024); color: white; }
+    .year-pill.y2025 { background: var(--color-2025); color: white; }
+    .year-pill.y2026 { background: var(--color-2026); color: white; }
+    .year-pill:hover { transform: scale(1.07); box-shadow: var(--shadow-medium); }
+    .year-arrow { font-size: 1.5rem; color: var(--marron-moyen); }
 
-    header h1 {
-      margin: 0;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      color: var(--blanc);
-      text-shadow: 0 2px 4px rgba(139, 69, 19, 0.3);
-      position: relative;
-      z-index: 1;
-    }
+    .nav-container { background: var(--beige-clair); padding: 0.7rem 0; position: sticky; top: 60px; z-index: 98; box-shadow: var(--shadow-small); border-bottom: 1px solid var(--marron-clair); }
+    .nav-links { display: flex; justify-content: center; list-style: none; flex-wrap: wrap; gap: 0.7rem; max-width: 1100px; margin: 0 auto; padding: 0; }
+    .nav-links a { color: var(--marron-fonce); text-decoration: none; font-weight: 600; padding: 6px 16px; border-radius: 30px; transition: all 0.3s; display: flex; align-items: center; gap: 6px; font-size: 0.9rem; background: white; border: 1px solid var(--marron-clair); }
+    .nav-links a:hover { background: var(--marron-clair); color: white; transform: translateY(-2px); }
 
-    header p {
-      font-size: 1.3rem;
-      opacity: 0.95;
-      margin-top: 0.8rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      z-index: 1;
-    }
+    .container { max-width: 1200px; margin: 2.5rem auto; padding: 0 2rem; }
+    section { background: var(--blanc); border-radius: 16px; box-shadow: var(--shadow-medium); padding: 2.5rem; margin-bottom: 2.5rem; border: 1px solid rgba(139,69,19,0.08); scroll-margin-top: 125px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--marron-fonce); margin-bottom: 26px; text-align: center; position: relative; padding-bottom: 14px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    h2::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 90px; height: 4px; background: linear-gradient(to right, var(--marron-clair), var(--marron-moyen)); border-radius: 2px; }
 
-    .student-info {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 12px 25px;
-      border-radius: 50px;
-      margin-top: 20px;
-      display: inline-block;
-      backdrop-filter: blur(5px);
-      box-shadow: var(--shadow-small);
-    }
+    /* EVOLUTION BAND */
+    .evo-band { display: flex; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-medium); margin: 1.5rem 0; }
+    .evo-col { flex: 1; padding: 1.8rem 1.5rem; }
+    .evo-col.c2024 { background: linear-gradient(160deg, #c0392b, #922b21); }
+    .evo-col.c2025 { background: linear-gradient(160deg, #e67e22, #b9770e); }
+    .evo-col.c2026 { background: linear-gradient(160deg, #27ae60, #1a7a44); }
+    .evo-col h4 { color: white; font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 10px; }
+    .evo-col p, .evo-col li { color: rgba(255,255,255,0.9); font-size: 0.93rem; margin-bottom: 5px; }
+    .evo-col ul { padding-left: 18px; }
+    .evo-arrow { display: flex; align-items: center; padding: 0 10px; background: white; font-size: 1.5rem; color: var(--marron-moyen); }
 
-    /* Navigation secondaire (liens internes) */
-    .nav-container {
-      background: var(--beige-clair);
-      padding: 1rem 0;
-      position: sticky;
-      top: 60px;
-      z-index: 98;
-      box-shadow: var(--shadow-small);
-      border-bottom: 1px solid var(--marron-clair);
-    }
+    /* ANNÉE BLOCS */
+    .annee-wrap { margin-bottom: 2.5rem; border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-medium); }
+    .annee-head { display: flex; align-items: center; gap: 18px; padding: 1.3rem 2rem; color: white; }
+    .annee-head.y2024 { background: linear-gradient(135deg, #c0392b, #7b241c); }
+    .annee-head.y2025 { background: linear-gradient(135deg, #e67e22, #9a5c12); }
+    .annee-head.y2026 { background: linear-gradient(135deg, #27ae60, #186a3b); }
+    .annee-head .big-year { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; opacity: 0.9; line-height: 1; }
+    .annee-head .head-text h3 { color: white; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin: 0 0 4px; }
+    .annee-head .head-text p { color: rgba(255,255,255,0.85); font-size: 0.93rem; margin: 0; }
+    .annee-head .head-icon { margin-left: auto; font-size: 2.2rem; opacity: 0.45; }
+    .annee-body { background: var(--beige-clair); padding: 2rem; }
 
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      max-width: 1000px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-      gap: 1rem;
+    /* CARDS */
+    .events-grid { display: grid; gap: 1.5rem; }
+    .events-grid.cols-1 { grid-template-columns: minmax(0, 600px); justify-content: center; }
+    .events-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .events-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .events-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .events-grid.cols-8 { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 700px) {
+      .events-grid.cols-2,
+      .events-grid.cols-3,
+      .events-grid.cols-4,
+      .events-grid.cols-8 { grid-template-columns: 1fr; }
     }
+    .event-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-small); transition: all 0.35s ease; opacity: 0; transform: translateY(22px); display: flex; flex-direction: column; }
+    .event-card.visible { opacity: 1; transform: translateY(0); }
+    .event-card:hover { transform: translateY(-7px); box-shadow: var(--shadow-large); }
+    .event-photo { width: 100%; height: 170px; object-fit: cover; display: block; background: var(--beige); }
+    .event-body { padding: 1.2rem 1.3rem; flex: 1; display: flex; flex-direction: column; }
+    .event-tag { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 7px; }
+    .tag-attaque { background: #fdecea; color: #c0392b; }
+    .tag-defense { background: #e8f5e9; color: #27ae60; }
+    .tag-coop    { background: #e3f2fd; color: #1565c0; }
+    .tag-metier  { background: #f3e5f5; color: #7b1fa2; }
+    .tag-tech    { background: #fff8e1; color: #e65100; }
+    .event-date-badge { font-size: 0.78rem; font-weight: 700; color: #999; margin-bottom: 5px; }
+    .event-body h4 { font-family: 'Playfair Display', serif; color: var(--marron-fonce); font-size: 1.05rem; margin-bottom: 8px; }
+    .event-body p { color: #555; font-size: 0.9rem; line-height: 1.6; flex: 1; }
+    .event-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; color: var(--marron-moyen); text-decoration: none; font-weight: 600; font-size: 0.85rem; padding: 5px 14px; border-radius: 20px; background: var(--beige-clair); border: 1px solid var(--marron-clair); transition: all 0.3s; align-self: flex-start; }
+    .event-link:hover { background: var(--marron-clair); color: white; }
 
-    .nav-links li {
-      margin: 0;
-    }
+    /* TENDANCES */
+    .tendances-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin: 1.5rem 0; }
+    @media (max-width: 700px) { .tendances-grid { grid-template-columns: 1fr; } }
+    .tendance-card { background: var(--beige-clair); border-radius: 16px; padding: 1.6rem; box-shadow: var(--shadow-medium); border-top: 5px solid var(--marron-clair); transition: all 0.3s; opacity: 0; transform: translateY(18px); }
+    .tendance-card.visible { opacity: 1; transform: translateY(0); }
+    .tendance-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-large); border-top-color: var(--marron-moyen); }
+    .tendance-card h4 { color: var(--marron-fonce); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+    .tendance-card h4 i { color: var(--marron-moyen); font-size: 1.4rem; }
+    .tendance-card p { color: #555; font-size: 0.93rem; line-height: 1.7; }
 
-    .nav-links a {
-      color: var(--marron-fonce);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 20px;
-      border-radius: 30px;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      font-size: 1rem;
-      background: white;
-      border: 1px solid var(--marron-clair);
-    }
+    /* STATS */
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 1.5rem 0; }
+    .stats-grid .stat-card:last-child:nth-child(4n+1) { grid-column: 2 / 4; }
+    @media (max-width: 900px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } .stats-grid .stat-card:last-child:nth-child(4n+1) { grid-column: auto; } }
+    @media (max-width: 500px) { .stats-grid { grid-template-columns: 1fr; } }
+    .stat-card { background: var(--beige-clair); border-radius: 14px; padding: 20px; text-align: center; box-shadow: var(--shadow-medium); border-top: 4px solid var(--marron-clair); transition: all 0.3s; opacity: 0; transform: translateY(15px); }
+    .stat-card.visible { opacity: 1; transform: translateY(0); }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-large); }
+    .stat-card h4 { color: var(--marron-fonce); font-size: 1rem; margin-bottom: 8px; font-family: 'Playfair Display', serif; }
+    .stat-value { font-size: 2rem; font-weight: 700; margin: 8px 0; }
+    .stat-desc { color: #666; font-size: 0.85rem; }
 
-    .nav-links a:hover {
-      background: var(--marron-clair);
-      color: white;
-      transform: translateY(-2px);
-    }
+    .tools-section { background: var(--beige); padding: 20px; border-radius: 14px; margin: 20px 0; border-left: 4px solid var(--marron-moyen); }
+    .tools-section p { margin-bottom: 7px; font-size: 0.95rem; }
 
-    .nav-links i {
-      margin-right: 8px;
-    }
+    .conclusion { background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen)); color: white; padding: 28px 32px; border-radius: 16px; margin-top: 24px; }
+    .conclusion h3 { color: white; font-family: 'Playfair Display', serif; margin-bottom: 12px; }
+    .conclusion p { color: rgba(255,255,255,0.95); margin-bottom: 10px; font-size: 0.97rem; }
+    .conclusion ul { margin-left: 20px; }
+    .conclusion li { color: rgba(255,255,255,0.95); margin-bottom: 6px; font-size: 0.95rem; }
 
-    .container {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
+    footer { text-align: center; padding: 2rem; background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen)); color: white; margin-top: 3rem; }
 
-    section {
-      background: var(--blanc);
-      border-radius: 15px;
-      box-shadow: var(--shadow-medium);
-      padding: 2.5rem;
-      margin-bottom: 2.5rem;
-      border: 1px solid rgba(139, 69, 19, 0.1);
-      scroll-margin-top: 140px;
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: var(--marron-fonce);
-      margin-bottom: 30px;
-      text-align: center;
-      position: relative;
-      padding-bottom: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    h2 i {
-      margin-right: 15px;
-      color: var(--marron-moyen);
-    }
-
-    h2::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(to right, var(--marron-clair), var(--marron-moyen));
-      border-radius: 2px;
-    }
-
-    h3 {
-      font-family: 'Playfair Display', serif;
-      color: var(--marron-moyen);
-      margin: 2rem 0 1rem;
-      font-size: 1.6rem;
-    }
-
-    h4 {
-      font-family: 'Playfair Display', serif;
-      color: var(--marron-fonce);
-      margin: 1.5rem 0 1rem;
-      font-size: 1.3rem;
-    }
-
-    /* TIMELINE - 10 ÉVÉNEMENTS CLÉS (2024-2026) */
-    .timeline-majeure {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-      margin: 2rem 0;
-      position: relative;
-    }
-
-    .timeline-majeure::before {
-      content: '';
-      position: absolute;
-      left: 35px;
-      top: 15px;
-      bottom: 15px;
-      width: 3px;
-      background: linear-gradient(to bottom, var(--marron-clair), var(--marron-moyen));
-      border-radius: 3px;
-    }
-
-    .timeline-block {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-      position: relative;
-    }
-
-    .timeline-marker {
-      min-width: 80px;
-      font-weight: 700;
-      color: white;
-      background: var(--marron-moyen);
-      padding: 8px 0;
-      border-radius: 40px;
-      text-align: center;
-      font-size: 1rem;
-      box-shadow: var(--shadow-medium);
-      border: 2px solid var(--marron-clair);
-      z-index: 2;
-    }
-
-    .timeline-highlight {
-      flex: 1;
-      background: var(--beige-clair);
-      border-radius: 18px;
-      padding: 1.8rem;
-      box-shadow: var(--shadow-medium);
-      border-left: 6px solid var(--marron-clair);
-      transition: all 0.3s ease;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      align-items: center;
-    }
-
-    .timeline-highlight:hover {
-      transform: translateX(8px);
-      box-shadow: var(--shadow-large);
-      border-left: 6px solid var(--marron-moyen);
-    }
-
-    .highlight-img {
-      flex: 0 0 130px;
-      height: 110px;
-      border-radius: 14px;
-      background-size: cover;
-      background-position: center;
-      background-color: var(--beige);
-      box-shadow: var(--shadow-medium);
-      border: 3px solid white;
-    }
-
-    .highlight-content {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .highlight-content h3 {
-      margin: 0 0 12px 0;
-      color: var(--marron-fonce);
-      font-size: 1.5rem;
-    }
-
-    .highlight-content p {
-      margin: 0 0 15px 0;
-      color: #555;
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-
-    .highlight-content a {
-      color: var(--marron-moyen);
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 20px;
-      background: white;
-      border-radius: 40px;
-      box-shadow: var(--shadow-small);
-      transition: all 0.3s;
-      border: 1px solid var(--marron-clair);
-    }
-
-    .highlight-content a:hover {
-      background: var(--marron-clair);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .highlight-content a i {
-      margin-right: 8px;
-    }
-
-    /* Tendances */
-    .tendances-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .tendance-card {
-      background: var(--beige-clair);
-      border-radius: 18px;
-      padding: 1.8rem;
-      box-shadow: var(--shadow-medium);
-      border-top: 5px solid var(--marron-clair);
-      transition: all 0.3s ease;
-    }
-
-    .tendance-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-large);
-      border-top: 5px solid var(--marron-moyen);
-    }
-
-    .tendance-card h4 {
-      color: var(--marron-fonce);
-      margin: 0 0 1rem 0;
-      display: flex;
-      align-items: center;
-      font-size: 1.4rem;
-    }
-
-    .tendance-card h4 i {
-      margin-right: 12px;
-      color: var(--marron-moyen);
-      font-size: 1.8rem;
-    }
-
-    .tendance-card p {
-      color: #555;
-      margin-bottom: 1rem;
-      line-height: 1.7;
-    }
-
-    .tendance-card ul {
-      padding-left: 20px;
-    }
-
-    .tendance-card li {
-      margin-bottom: 8px;
-    }
-
-    /* Statistiques */
-    .statistics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      margin: 30px 0;
-    }
-
-    .stat-card {
-      flex: 1;
-      min-width: 200px;
-      background: var(--beige-clair);
-      border-radius: 16px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: var(--shadow-medium);
-      border-top: 4px solid var(--marron-clair);
-      transition: all 0.3s ease;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-large);
-      border-top: 4px solid var(--marron-moyen);
-    }
-
-    .stat-card h4 {
-      margin: 0 0 15px;
-      color: var(--marron-fonce);
-      font-size: 1.2rem;
-    }
-
-    .stat-value {
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--marron-moyen);
-      margin: 15px 0;
-    }
-
-    .stat-desc {
-      color: #666;
-      font-size: 0.95rem;
-    }
-
-    .tools-section {
-      background: var(--beige);
-      padding: 25px;
-      border-radius: 16px;
-      margin: 25px 0;
-      border-left: 4px solid var(--marron-moyen);
-    }
-
-    .conclusion {
-      background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen));
-      color: white;
-      padding: 35px;
-      border-radius: 18px;
-      margin-top: 30px;
-      box-shadow: var(--shadow-medium);
-    }
-
-    .conclusion h3, .conclusion p, .conclusion ul {
-      color: white;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen));
-      color: white;
-      margin-top: 3rem;
-    }
-
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen));
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: var(--shadow-medium);
-      transition: all 0.3s ease;
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      border: none;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .back-to-top:hover {
-      transform: translateY(-5px);
-    }
-
-    /* Animations */
-    .timeline-block, .tendance-card, .stat-card {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
-    }
-
-    /* Variables de texte */
-    .texte-fonce {
-      color: var(--texte-fonce);
-    }
-
-    @media (max-width: 992px) {
-      .top-nav {
-        padding: 10px 20px;
-        gap: 15px;
-      }
-      
-      .top-nav a {
-        font-size: 0.85rem;
-        padding: 4px 8px;
-      }
-    }
+    .back-to-top { position: fixed; bottom: 28px; right: 28px; background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen)); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: var(--shadow-medium); border: none; transition: all 0.3s; z-index: 999; opacity: 0; visibility: hidden; }
+    .back-to-top.visible { opacity: 1; visibility: visible; }
+    .back-to-top:hover { transform: translateY(-4px); }
 
     @media (max-width: 768px) {
-      header {
-        margin-top: 50px;
-        padding: 2rem 1rem;
-      }
-      
-      header h1 { font-size: 2rem; }
-      
-      .container { padding: 0 1.5rem; }
-      
-      section { padding: 1.5rem; }
-      
-      .timeline-block { flex-direction: column; }
-      
-      .timeline-marker { align-self: flex-start; }
-      
-      .timeline-majeure::before { left: 25px; }
-      
-      .nav-container {
-        top: 50px;
-      }
-      
-      .top-nav {
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        width: 100%;
-        border-radius: 0;
-        border-bottom-left-radius: 0;
-        padding: 10px 15px;
-        gap: 8px;
-      }
-      
-      .top-nav a {
-        font-size: 0.8rem;
-        white-space: nowrap;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header {
-        margin-top: 80px;
-      }
-      
-      .top-nav {
-        flex-wrap: wrap;
-        padding: 8px 10px;
-      }
-      
-      .top-nav a {
-        font-size: 0.75rem;
-        padding: 3px 6px;
-      }
-      
-      .nav-container {
-        top: 80px;
-      }
+      header { margin-top: 50px; padding: 2rem 1rem; }
+      header h1 { font-size: 1.9rem; }
+      .container { padding: 0 1rem; }
+      section { padding: 1.2rem; }
+      .evo-band { flex-direction: column; }
+      .evo-arrow { padding: 8px; transform: rotate(90deg); }
+      .top-nav { flex-wrap: wrap; padding: 8px 12px; gap: 6px; }
+      .top-nav a { font-size: 0.78rem; padding: 3px 7px; }
+      .annee-body { padding: 1.2rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Top navigation - style identique à Contact et E5 -->
-  <nav class="top-nav" aria-label="Navigation supérieure">
+
+  <nav class="top-nav">
     <a href="index.html">Accueil</a>
     <a href="entreprise.html">Entreprise</a>
     <a href="realisation.html">Réalisations professionnelles/Compétences</a>
@@ -601,290 +179,393 @@
 
   <header>
     <h1><i class="fas fa-shield-alt"></i> Veille Technologique</h1>
-    <p>Évolution des ransomwares et stratégies de protection (2024-2026)</p>
+    <p>Évolution des ransomwares et stratégies de protection</p>
+    <div class="header-badges">
+      <span><i class="fas fa-calendar-alt" style="margin-right:6px;"></i>2024 → 2026</span>
+      <span><i class="fas fa-newspaper" style="margin-right:6px;"></i>Sources sélectionnées</span>
+      <span><i class="fas fa-user" style="margin-right:6px;"></i>BEAGLE Jacky-Anaïs · BTS SIO</span>
+    </div>
   </header>
 
-  <!-- Navigation secondaire (liens internes) -->
+  <div class="years-bar">
+    <a href="#annee2024" class="year-pill y2024">2024 — Généralisation</a>
+    <span class="year-arrow">→</span>
+    <a href="#annee2025" class="year-pill y2025">2025 — Escalade &amp; Riposte</a>
+    <span class="year-arrow">→</span>
+    <a href="#annee2026" class="year-pill y2026">2026 — Nouveaux horizons</a>
+  </div>
+
   <div class="nav-container">
     <ul class="nav-links">
-      <li><a href="#chrono"><i class="fas fa-history"></i> Chronologie</a></li>
-      <li><a href="#tendances"><i class="fas fa-chart-line"></i> Tendances</a></li>
-      <li><a href="#statistiques"><i class="fas fa-chart-pie"></i> Statistiques</a></li>
-      <li><a href="#sources"><i class="fas fa-book"></i> Sources</a></li>
+      <li><a href="#evolution"><i class="fas fa-arrows-alt-h"></i>Évolution</a></li>
+      <li><a href="#annee2024"><i class="fas fa-circle" style="color:var(--color-2024);font-size:0.7rem;"></i>2024</a></li>
+      <li><a href="#annee2025"><i class="fas fa-circle" style="color:var(--color-2025);font-size:0.7rem;"></i>2025</a></li>
+      <li><a href="#annee2026"><i class="fas fa-circle" style="color:var(--color-2026);font-size:0.7rem;"></i>2026</a></li>
+      <li><a href="#tendances"><i class="fas fa-fire"></i>Tendances</a></li>
+      <li><a href="#statistiques"><i class="fas fa-chart-pie"></i>Statistiques</a></li>
+      <li><a href="#sources"><i class="fas fa-book"></i>Sources</a></li>
     </ul>
   </div>
 
   <div class="container">
-    <!-- CHRONOLOGIE COMPLÈTE 2024-2026 (10 événements majeurs) -->
-    <section id="chrono">
-      <h2><i class="fas fa-timeline"></i> Les 10 moments clés de l'évolution</h2>
-      <p style="text-align: center; margin-bottom: 2rem;">De l'émergence de la triple extorsion aux perspectives 2026</p>
-      
-      <div class="timeline-majeure">
 
-        <!-- 1. Décembre 2024 - Bilan annuel -->
-        <div class="timeline-block">
-          <div class="timeline-marker">Déc 2024</div>
-          <div class="timeline-highlight">
-            <div class="highlight-img" style="background-image: url('https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=400');"></div>
-            <div class="highlight-content">
-              <h3>Bilan 2024 : le double chantage généralisé</h3>
-              <p>Conséquences financières, opérationnelles et juridiques des cyberattaques. Le modèle du double chantage (chiffrement + fuite) devient la norme.</p>
-              <a href="https://solutions.lesechos.fr/tech/cybersecurite/cybersecurite-quelles-sont-les-consequences-des-cyberattaques-en-2024/" target="_blank"><i class="fas fa-external-link-alt"></i> Lire l'analyse</a>
-            </div>
-          </div>
+    <!-- VUE D'ENSEMBLE -->
+    <section id="evolution">
+      <h2><i class="fas fa-arrows-alt-h"></i>Vue d'ensemble : 3 ans d'évolution</h2>
+      <p style="text-align:center;color:#666;margin-bottom:1.5rem;">Du double chantage généralisé à la riposte internationale et aux nouvelles menaces</p>
+      <div class="evo-band">
+        <div class="evo-col c2024">
+          <h4>2024 — Généralisation</h4>
+          <p>Le double chantage (chiffrement + fuite) s'impose. Le RaaS démocratise les outils criminels.</p>
+          <ul>
+            <li>Conséquences financières massives</li>
+            <li>Atteintes à la réputation</li>
+            <li>Risques juridiques (RGPD)</li>
+          </ul>
         </div>
-
-        <!-- 2. Février 2025 - Virage tactique majeur -->
-        <div class="timeline-block">
-          <div class="timeline-marker">Fév 2025</div>
-          <div class="timeline-highlight">
-            <div class="highlight-img" style="background-image: url('https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=400');"></div>
-            <div class="highlight-content">
-              <h3>Naissance de la triple extorsion</h3>
-              <p>Face au refus de paiement (58%), les pirates ajoutent une pression directe sur les clients et partenaires des victimes.</p>
-              <a href="https://www.01net.com/actualites/ransomware-victimes-paient-plus-pirates-changent-tactique.html" target="_blank"><i class="fas fa-external-link-alt"></i> Comprendre le changement</a>
-            </div>
-          </div>
+        <<div class="evo-arrow"><i class="fas fa-chevron-right"></i></div>
+        <div class="evo-col c2025">
+          <h4>2025 — Escalade &amp; Riposte</h4>
+          <p>+45 % d'attaques mais les défenses s'organisent. Triple extorsion, zero-day, ciblage sauvegardes.</p>
+          <ul>
+            <li>Sauvegardes immuables</li>
+            <li>Convention de Hanoï</li>
+            <li>Premières baisses (−37 %)</li>
+          </ul>
         </div>
-
-        <!-- 3. Mars 2025 - Méthode d'exfiltration Qilin -->
-        <div class="timeline-block">
-          <div class="timeline-marker">Mars 2025</div>
-          <div class="timeline-highlight">
-            <div class="highlight-img" style="background-image: url('https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=400');"></div>
-            <div class="highlight-content">
-              <h3>L'exfiltration devient systématique</h3>
-              <p>Analyse détaillée des méthodes de Qilin : utilisation d'outils légitimes (Rclone) pour voler les données avant chiffrement.</p>
-              <a href="https://www.lemagit.fr/actualites/366619958/Ransomware-comment-un-affide-Qilin-exfiltre-les-donnees-de-ses-victimes" target="_blank"><i class="fas fa-external-link-alt"></i> Voir la technique</a>
-            </div>
-          </div>
+        <div class="evo-arrow"><i class="fas fa-chevron-right"></i></div>
+        <div class="evo-col c2026">
+          <h4>2026 — Nouveaux horizons</h4>
+          <p>IA défensive, menace quantique, nouveaux métiers et investissements massifs dans le cloud.</p>
+          <ul>
+            <li>Alliance IA – expertise humaine</li>
+            <li>Négociateur en ransomware</li>
+            <li>Google rachète Wiz (32 Mrd$)</li>
+          </ul>
         </div>
+      </div>
+    </section>
 
-        <!-- 4. Mai 2025 - Zero-day Windows -->
-        <div class="timeline-block">
-          <div class="timeline-marker">Mai 2025</div>
-          <div class="timeline-highlight">
-            <div class="highlight-img" style="background-image: url('https://images.pexels.com/photos/1714205/pexels-photo-1714205.jpeg?auto=compress&cs=tinysrgb&w=400');"></div>
-            <div class="highlight-content">
-              <h3>Exploitation d'une faille zero-day Windows</h3>
-              <p>Le groupe Play utilise une vulnérabilité inconnue de Windows, démontrant la sophistication croissante des attaquants.</p>
-              <a href="https://www.lemagit.fr/actualites/366623690/Ransomware-quand-un-affide-de-Play-exploitait-une-vulnerabilite-inedite-de-Windows" target="_blank"><i class="fas fa-external-link-alt"></i> Détails de l'attaque</a>
-            </div>
+    <!-- ====== 2024 ====== -->
+    <section id="annee2024">
+      <div class="annee-wrap">
+        <div class="annee-head y2024">
+          <span class="big-year">2024</span>
+          <div class="head-text">
+            <h3>La généralisation du double chantage</h3>
+            <p>Le ransomware s'industrialise — chiffrement + fuite de données devient la norme absolue</p>
           </div>
+          <i class="fas fa-industry head-icon"></i>
         </div>
+        <div class="annee-body">
+          <div class="events-grid cols-2">
 
-        <!-- 5. Juin 2025 - Baisse historique des attaques -->
-        <div class="timeline-block">
-          <div class="timeline-marker">Juin 2025</div>
-          <div class="timeline-highlight">
-            <div class="highlight-img" style="background-image: url('https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=400');"></div>
-            <div class="highlight-content">
-              <h3>Première baisse significative (-37%)</h3>
-              <p>Les mesures défensives (sauvegardes immuables, Zero Trust) commencent à porter leurs fruits.</p>
-              <a href="https://www.lemagit.fr/actualites/366625837/Ransomware-un-mois-de-mai-qui-conforte-le-recul-davril" target="_blank"><i class="fas fa-external-link-alt"></i> Analyser la tendance</a>
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cyberattaque impact entreprise" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Décembre 2024</div>
+                <span class="event-tag tag-attaque">Bilan annuel</span>
+                <h4>Bilan 2024 : le double chantage généralisé</h4>
+                <p>Panorama complet des impacts : coûts de réponse, amendes RGPD, pertes de CA, atteintes à la réputation, risques juridiques. Le modèle chiffrement + menace de publication devient la tactique standard de tous les grands groupes criminels.</p>
+                <a class="event-link" href="https://solutions.lesechos.fr/tech/cybersecurite/cybersecurite-quelles-sont-les-consequences-des-cyberattaques-en-2024/" target="_blank"><i class="fas fa-external-link-alt"></i>Lire l'analyse</a>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- 6. Juillet 2025 - Nouvelles tendances -->
-        <div class="timeline-block">
-          <div class="timeline-marker">Juil 2025</div>
-          <div class="timeline-highlight">
-            <div class="highlight-img" style="background-image: url('https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=400');"></div>
-            <div class="highlight-content">
-              <h3>Triple extorsion et ciblage des sauvegardes</h3>
-              <p>Les pirates attaquent désormais directement les solutions de sauvegarde pour empêcher toute récupération.</p>
-              <a href="https://www.itforbusiness.fr/ransomware-les-nouvelles-tendances-92673" target="_blank"><i class="fas fa-external-link-alt"></i> Voir les tendances</a>
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Code source ransomware développeur" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Décembre 2024</div>
+                <span class="event-tag tag-attaque">Menaces 2025</span>
+                <h4>Principales menaces cyber annoncées pour 2025</h4>
+                <p>Synthèse prospective : IA offensive, deepfakes pour le phishing, attaques des supply chains, IoT, infrastructures critiques. Les parades recommandées : Zero Trust, règle 3-2-1, sensibilisation des utilisateurs.</p>
+                <a class="event-link" href="https://presseagence.fr/paris-principales-menaces-en-cybersecurite-en-2025-et-comment-vous-proteger/" target="_blank"><i class="fas fa-external-link-alt"></i>Voir les menaces</a>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- 7. Octobre 2025 - Convention de Hanoï -->
-        <div class="timeline-block">
-          <div class="timeline-marker">Oct 2025</div>
-          <div class="timeline-highlight">
-            <div class="highlight-img" style="background-image: url('https://images.pexels.com/photos/159802/earth-planet-globe-international-159802.jpeg?auto=compress&cs=tinysrgb&w=400');"></div>
-            <div class="highlight-content">
-              <h3>Coopération internationale historique</h3>
-              <p>Signature de la Convention de Hanoï, premier traité ONU contre la cybercriminalité depuis 2001.</p>
-              <a href="https://lecourrier.vn/hanoi-carrefour-mondial-de-la-cooperation-numerique/1293499.html" target="_blank"><i class="fas fa-external-link-alt"></i> Lire sur le traité</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8. Novembre 2025 - Cyber Threat Intelligence -->
-        <div class="timeline-block">
-          <div class="timeline-marker">Nov 2025</div>
-          <div class="timeline-highlight">
-            <div class="highlight-img" style="background-image: url('https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg?auto=compress&cs=tinysrgb&w=400');"></div>
-            <div class="highlight-content">
-              <h3>La CTI devient stratégique</h3>
-              <p>La Cyber Threat Intelligence s'impose comme le "carburant" des outils de sécurité pour une défense proactive.</p>
-              <a href="https://www.solutions-numeriques.com/avis-dexpert-cyber-threat-intelligence-larme-secrete-pour-doper-vos-outils-de-securite/" target="_blank"><i class="fas fa-external-link-alt"></i> Découvrir la CTI</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 9. Janvier 2026 - IA et expertise humaine -->
-        <div class="timeline-block">
-          <div class="timeline-marker">Jan 2026</div>
-          <div class="timeline-highlight">
-            <div class="highlight-img" style="background-image: url('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400');"></div>
-            <div class="highlight-content">
-              <h3>L'alliance IA-expertise humaine</h3>
-              <p>ESET place la combinaison de l'intelligence artificielle et des chercheurs au cœur de sa stratégie de cybersécurité.</p>
-              <a href="https://businessnews.com.tn/2026/01/07/cybersecurite-lalliance-entre-lia-et-lexpertise-humaine-au-coeur-de-la-strategie-deset/1381703/" target="_blank"><i class="fas fa-external-link-alt"></i> Voir la stratégie</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 10. Février 2026 - Bilan 2025 -->
-        <div class="timeline-block">
-          <div class="timeline-marker">Fév 2026</div>
-          <div class="timeline-highlight">
-            <div class="highlight-img" style="background-image: url('https://images.pexels.com/photos/3943727/pexels-photo-3943727.jpeg?auto=compress&cs=tinysrgb&w=400');"></div>
-            <div class="highlight-content">
-              <h3>Bilan 2025 : +45% d'attaques</h3>
-              <p>9 200 entreprises victimes, mais le taux de paiement continue de baisser. Le secteur manufacturier est le plus touché.</p>
-              <a href="https://fnh.ma/article/alaune/ransomware-escalade-mondiale-2025" target="_blank"><i class="fas fa-external-link-alt"></i> Voir le bilan</a>
-            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 4 GRANDES TENDANCES -->
+    <!-- ====== 2025 ====== -->
+    <section id="annee2025">
+      <div class="annee-wrap">
+        <div class="annee-head y2025">
+          <span class="big-year">2025</span>
+          <div class="head-text">
+            <h3>Escalade mondiale et contre-offensive</h3>
+            <p>9 200 victimes · Triple extorsion · Sauvegardes immuables · Convention de Hanoï</p>
+          </div>
+          <i class="fas fa-shield-halved head-icon"></i>
+        </div>
+        <div class="annee-body">
+          <div class="events-grid cols-8">
+
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Code ransomware triple extorsion" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Février 2025</div>
+                <span class="event-tag tag-attaque">Tactique</span>
+                <h4>Naissance de la triple extorsion</h4>
+                <p>Face au refus de paiement de 58 % des victimes, les pirates ajoutent une pression directe sur clients et partenaires. L'exfiltration devient plus rentable que le simple chiffrement.</p>
+                <a class="event-link" href="https://www.01net.com/actualites/ransomware-victimes-paient-plus-pirates-changent-tactique.html" target="_blank"><i class="fas fa-external-link-alt"></i>Lire l'article</a>
+              </div>
+            </div>
+
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Exfiltration données Qilin Rclone" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Mars 2025</div>
+                <span class="event-tag tag-attaque">Technique</span>
+                <h4>Méthodes d'exfiltration Qilin décortiquées</h4>
+                <p>Analyse du mode opératoire d'un affilié Qilin : outils légitimes détournés (Rclone) pour voler les données avant chiffrement. Mouvement latéral furtif, transferts massifs non détectés.</p>
+                <a class="event-link" href="https://www.lemagit.fr/actualites/366619958/Ransomware-comment-un-affide-Qilin-exfiltre-les-donnees-de-ses-victimes" target="_blank"><i class="fas fa-external-link-alt"></i>Voir la technique</a>
+              </div>
+            </div>
+
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Harvest fintech cyberattaque France" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Mars 2025</div>
+                <span class="event-tag tag-attaque">Cas réel · France</span>
+                <h4>Harvest : une fintech française paralysée</h4>
+                <p>Cyberattaque contre cette fintech spécialisée dans le crédit à la consommation : site et application mobiles hors service. Illustre l'impact opérationnel immédiat dans le secteur financier.</p>
+                <a class="event-link" href="https://www.lemagit.fr/actualites/366620232/Ransomware-la-FinTech-francaise-Harvest-victime-dune-cyberattaque" target="_blank"><i class="fas fa-external-link-alt"></i>Lire le cas</a>
+              </div>
+            </div>
+
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/1714205/pexels-photo-1714205.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Faille zero-day Windows exploitation" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Mai 2025</div>
+                <span class="event-tag tag-attaque">Zero-day</span>
+                <h4>Play exploite une faille inédite de Windows</h4>
+                <p>Un affilié du groupe Play exploite une vulnérabilité zero-day pour obtenir des privilèges élevés. Démontre que les défenses basées uniquement sur des signatures de fichiers connus sont insuffisantes.</p>
+                <a class="event-link" href="https://www.lemagit.fr/actualites/366623690/Ransomware-quand-un-affide-de-Play-exploitait-une-vulnerabilite-inedite-de-Windows" target="_blank"><i class="fas fa-external-link-alt"></i>Détails de l'attaque</a>
+              </div>
+            </div>
+
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Baisse attaques ransomware statistiques" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Juin 2025</div>
+                <span class="event-tag tag-defense">Bonne nouvelle</span>
+                <h4>Première baisse significative : −37 %</h4>
+                <p>Deuxième mois consécutif de recul des attaques réussies (avril + mai 2025). Les sauvegardes immuables et les perturbations judiciaires contre LockBit commencent à porter leurs fruits.</p>
+                <a class="event-link" href="https://www.lemagit.fr/actualites/366625837/Ransomware-un-mois-de-mai-qui-conforte-le-recul-davril" target="_blank"><i class="fas fa-external-link-alt"></i>Analyser la tendance</a>
+              </div>
+            </div>
+
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/159802/pexels-photo-159802.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Convention ONU Hanoï cybercriminalité" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Octobre 2025</div>
+                <span class="event-tag tag-coop">Historique</span>
+                <h4>Convention de Hanoï : premier traité ONU</h4>
+                <p>Signature historique à Hanoï du premier traité international contre la cybercriminalité depuis Budapest (2001). Objectif : harmoniser les lois, faciliter la coopération judiciaire mondiale face aux ransomwares.</p>
+                <a class="event-link" href="https://lecourrier.vn/hanoi-carrefour-mondial-de-la-cooperation-numerique/1293499.html" target="_blank"><i class="fas fa-external-link-alt"></i>Lire sur le traité</a>
+              </div>
+            </div>
+
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mini Ootbi sauvegarde immuable PME" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Novembre 2025</div>
+                <span class="event-tag tag-defense">Solution PME</span>
+                <h4>Mini Ootbi : sauvegarde immuable pour les PME</h4>
+                <p>Object First lance une appliance clé-en-main Zero Trust (8/16/24 To) rendant les données insensibles aux ransomwares. Accompagnée du logiciel Honeypot 1.7 pour la détection précoce des menaces.</p>
+                <a class="event-link" href="https://www.lebigdata.fr/mini-ootbi-sauvegarde-immuable-veeam" target="_blank"><i class="fas fa-external-link-alt"></i>Découvrir Mini Ootbi</a>
+              </div>
+            </div>
+
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cyber Threat Intelligence CTI sécurité" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Novembre 2025</div>
+                <span class="event-tag tag-defense">CTI</span>
+                <h4>La Cyber Threat Intelligence devient stratégique</h4>
+                <p>La CTI s'impose comme le "carburant" des outils de sécurité. Via OpenCTI, elle fournit des indicateurs actualisés (IP malveillantes, signatures) pour une défense proactive et contextuelle.</p>
+                <a class="event-link" href="https://www.solutions-numeriques.com/avis-dexpert-cyber-threat-intelligence-larme-secrete-pour-doper-vos-outils-de-securite/" target="_blank"><i class="fas fa-external-link-alt"></i>Découvrir la CTI</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== 2026 ====== -->
+    <section id="annee2026">
+      <div class="annee-wrap">
+        <div class="annee-head y2026">
+          <span class="big-year">2026</span>
+          <div class="head-text">
+            <h3>Nouveaux horizons et contre-mesures avancées</h3>
+            <p>IA défensive · Négociateurs en ransomware · Géants du cloud en mouvement</p>
+          </div>
+          <i class="fas fa-microchip head-icon"></i>
+        </div>
+        <div class="annee-body">
+          <div class="events-grid cols-4">
+
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Intelligence artificielle cybersécurité ESET" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Janvier 2026</div>
+                <span class="event-tag tag-defense">IA</span>
+                <h4>ESET : l'alliance IA – expertise humaine</h4>
+                <p>Stratégie centrée sur la combinaison IA + chercheurs : threat intelligence, MDR, détection avancée, MFA. L'IA automatise l'analyse, les humains assurent le jugement stratégique et la réponse aux incidents.</p>
+                <a class="event-link" href="https://businessnews.com.tn/2026/01/07/cybersecurite-lalliance-entre-lia-et-lexpertise-humaine-au-coeur-de-la-strategie-deset/1381703/" target="_blank"><i class="fas fa-external-link-alt"></i>Voir la stratégie</a>
+              </div>
+            </div>
+
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/3943727/pexels-photo-3943727.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Bilan ransomware 2025 hausse mondiale" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Février 2026</div>
+                <span class="event-tag tag-attaque">Bilan 2025</span>
+                <h4>Bilan 2025 : +45 %, 9 200 entreprises victimes</h4>
+                <p>Escalade mondiale confirmée. Secteur manufacturier le plus touché (arrêts de production). Europe et France en forte hausse. Mais le taux de paiement continue de baisser grâce aux meilleures défenses.</p>
+                <a class="event-link" href="https://fnh.ma/article/alaune/ransomware-escalade-mondiale-2025" target="_blank"><i class="fas fa-external-link-alt"></i>Voir le bilan</a>
+              </div>
+            </div>
+
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/5439381/pexels-photo-5439381.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Négociateur ransomware nouveau métier" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Mars 2026</div>
+                <span class="event-tag tag-metier">Nouveau métier</span>
+                <h4>Le négociateur en ransomware : IBM dévoile les coulisses</h4>
+                <p>Rôle émergent : négocier via des chats sécurisés sur le darknet, vérifier les preuves de déchiffrement, réduire la rançon ou gagner du temps. Combine forensique, technique et communication de crise.</p>
+                <a class="event-link" href="https://www.lebigdata.fr/ransomware-comment-negocier-avec-des-hackers-les-coulisses-dun-metier-meconnu" target="_blank"><i class="fas fa-external-link-alt"></i>Voir les coulisses</a>
+              </div>
+            </div>
+
+            <div class="event-card">
+              <img class="event-photo" src="https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Google acquisition Wiz cloud sécurité" loading="lazy">
+              <div class="event-body">
+                <div class="event-date-badge"><i class="fas fa-calendar" style="margin-right:5px;"></i>Mars 2026</div>
+                <span class="event-tag tag-tech">Big Tech</span>
+                <h4>Google finalise l'acquisition de Wiz pour 32 Mrd$</h4>
+                <p>Plus grande acquisition de l'histoire de Google. Wiz spécialisée dans la sécurité cloud : détection de failles, protection des environnements. Les solutions restent compatibles AWS et Azure.</p>
+                <a class="event-link" href="https://next.ink/brief_article/cybersecurite-google-finalise-lacquisition-de-wiz/" target="_blank"><i class="fas fa-external-link-alt"></i>Lire l'acquisition</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TENDANCES -->
     <section id="tendances">
-      <h2><i class="fas fa-chart-line"></i> 4 grandes tendances de l'évolution</h2>
-      
+      <h2><i class="fas fa-fire"></i>4 grandes tendances 2024–2026</h2>
       <div class="tendances-grid">
         <div class="tendance-card">
-          <h4><i class="fas fa-skull-crosswind"></i> 1. Tactiques des pirates</h4>
-          <p><strong>Double → Triple extorsion :</strong> chiffrement + fuite + pression sur les clients. Ciblage des sauvegardes et exfiltration systématique.</p>
-          <p><em>Méthodes :</em> outils légitimes détournés (Rclone), zero-day, réutilisation de codes (Conti, LockBit).</p>
+          <h4><i class="fas fa-skull-crossbones"></i>1. Tactiques des pirates</h4>
+          <p><strong>Simple → Double → Triple extorsion.</strong> Chiffrement + fuite + pression sur clients. Ciblage direct des sauvegardes (Veeam), exfiltration via Rclone, exploitation de zero-day Windows. Le RaaS fragmente la menace.</p>
         </div>
-
         <div class="tendance-card">
-          <h4><i class="fas fa-shield-halved"></i> 2. Défense et résilience</h4>
-          <p><strong>Sauvegardes immuables, Zero Trust, CTI.</strong> Baisse de 37% des attaques réussies en mai 2025. Alliance IA-expertise humaine.</p>
-          <p><em>Exemples :</em> Mini Ootbi, Hyperbunker, plateformes CTI.</p>
+          <h4><i class="fas fa-shield-halved"></i>2. Défense et résilience</h4>
+          <p><strong>Sauvegardes immuables (règle 3-2-1), Zero Trust, CTI.</strong> Baisse de 37 % en mai 2025. Mini Ootbi pour les PME. Alliance IA-expertise humaine (ESET). CTI industrielle via CrowdStrike et OpenCTI.</p>
         </div>
-
         <div class="tendance-card">
-          <h4><i class="fas fa-globe"></i> 3. Coopération internationale</h4>
-          <p><strong>Convention de Hanoï (2025),</strong> extractions de développeurs LockBit, partenariats transatlantiques Canada-France.</p>
-          <p>Création de centres d'innovation (Maroc, Vietnam).</p>
+          <h4><i class="fas fa-globe"></i>3. Coopération internationale</h4>
+          <p><strong>Convention de Hanoï (oct. 2025)</strong> — premier traité ONU depuis Budapest. Extraditions LockBit USA-Canada. Partenariat Sherbrooke–Bretagne. Centres d'innovation au Maroc, Vietnam et Congo.</p>
         </div>
-
         <div class="tendance-card">
-          <h4><i class="fas fa-microchip"></i> 4. Menaces émergentes 2026</h4>
-          <p><strong>IA offensive,</strong> menace quantique (Harvest Now, Decrypt Later), supply chains, infrastructures critiques.</p>
-          <p>Nouveaux métiers : négociateur en ransomware.</p>
+          <h4><i class="fas fa-microchip"></i>4. Menaces émergentes 2026</h4>
+          <p><strong>IA offensive</strong> (deepfakes, malwares auto-générés), menace quantique <em>"Harvest Now, Decrypt Later"</em>. Nouveau métier : négociateur en ransomware. Google rachète Wiz (32 Mrd$) pour sécuriser le cloud.</p>
         </div>
       </div>
     </section>
 
-    <!-- STATISTIQUES CLÉS -->
+    <!-- STATS -->
     <section id="statistiques">
-      <h2><i class="fas fa-chart-pie"></i> Chiffres clés 2024-2026</h2>
-
-      <div class="statistics">
+      <h2><i class="fas fa-chart-pie"></i>Chiffres clés 2024–2026</h2>
+      <div class="stats-grid">
         <div class="stat-card">
           <h4>Hausse 2025</h4>
-          <div class="stat-value">+45%</div>
+          <div class="stat-value" style="color:var(--color-2025);">+45 %</div>
           <div class="stat-desc">9 200 entreprises victimes</div>
         </div>
         <div class="stat-card">
           <h4>Refus de paiement</h4>
-          <div class="stat-value">58%</div>
-          <div class="stat-desc">n'ont pas cédé en 2025</div>
+          <div class="stat-value" style="color:var(--color-2026);">58 %</div>
+          <div class="stat-desc">des victimes n'ont pas cédé</div>
         </div>
         <div class="stat-card">
-          <h4>Baisse (mai 2025)</h4>
-          <div class="stat-value">-37%</div>
+          <h4>Baisse mai 2025</h4>
+          <div class="stat-value" style="color:var(--color-2026);">−37 %</div>
           <div class="stat-desc">attaques réussies vs avril</div>
         </div>
         <div class="stat-card">
-          <h4>Secteur le plus touché</h4>
-          <div class="stat-value">Manufacturier</div>
-          <div class="stat-desc">arrêts de production</div>
+          <h4>Secteur le + touché</h4>
+          <div class="stat-value" style="font-size:1.2rem;color:var(--color-2024);">Manufactur.</div>
+          <div class="stat-desc">Arrêts de production</div>
+        </div>
+        <div class="stat-card">
+          <h4>Google / Wiz</h4>
+          <div class="stat-value" style="color:var(--color-2026);">32 Mrd$</div>
+          <div class="stat-desc">Plus grande acquisition Google</div>
         </div>
       </div>
 
       <div class="conclusion">
-        <h3><i class="fas fa-comment-alt"></i> Synthèse</h3>
-        <p><strong>2024-2025 :</strong> Les pirates s'adaptent (triple extorsion, zero-day), mais les défenses progressent (sauvegardes immuables, CTI). La coopération internationale s'intensifie (Convention de Hanoï).</p>
-        <p style="margin-top: 15px;"><strong>2026 :</strong> La menace quantique, l'IA offensive et la résilience pilotée par l'IA et l'expertise humaine seront au cœur des stratégies.</p>
+        <h3><i class="fas fa-lightbulb" style="margin-right:10px;"></i>Synthèse de l'évolution 2024 → 2026</h3>
+        <p><strong>2024 :</strong> Le double chantage s'impose comme norme. Conséquences financières, juridiques et réputationnelles massives. Le RaaS démocratise l'accès aux outils criminels.</p>
+        <p><strong>2025 :</strong> Escalade (+45 %), sophistication extrême (zero-day, exfiltration systématique, ciblage sauvegardes) mais contre-offensive avec sauvegardes immuables, CTI et Convention de Hanoï. Premières baisses (−37 %).</p>
+        <p><strong>2026 :</strong> L'IA défensive redéfinit le paysage. Nouveaux métiers émergent (négociateur). Les géants du cloud investissent massivement — Google rachète Wiz pour 32 Mrd$.</p>
       </div>
     </section>
 
-    <!-- SOURCES ET COMPÉTENCES -->
+    <!-- SOURCES -->
     <section id="sources">
-      <h2><i class="fas fa-book"></i> Méthodologie</h2>
-
+      <h2><i class="fas fa-book"></i>Méthodologie &amp; Sources</h2>
       <div class="tools-section">
-        <h4><i class="fas fa-tools"></i> Outils de veille</h4>
-        <p><strong>Google Alerte :</strong> ransomware, cybersécurité, cyberattaque · <strong>Feedly :</strong> flux RSS spécialisés</p>
-        <p><strong>Sources principales :</strong> LeMagIT, 01net, JDN, Solutions Numériques, IBM, ESET, etc.</p>
-        <p><strong>Période :</strong> Décembre 2024 à Février 2026 · Sélection des 10 articles les plus significatifs</p>
+        <p><strong><i class="fas fa-bell" style="margin-right:6px;color:var(--marron-moyen);"></i>Google Alertes :</strong> ransomware, cybersécurité, cyberattaque, zero-day, CTI</p>
+        <p><strong><i class="fas fa-rss" style="margin-right:6px;color:var(--marron-moyen);"></i>Feedly :</strong> LeMagIT, 01net, JDN, Solutions Numériques, LeBigData, L'Informaticien, ITforBusiness</p>
+        <p><strong><i class="fas fa-calendar-alt" style="margin-right:6px;color:var(--marron-moyen);"></i>Période :</strong> Décembre 2024 → Mars 2026</p>
+        <p><strong><i class="fas fa-newspaper" style="margin-right:6px;color:var(--marron-moyen);"></i>Sources :</strong> LeMagIT, 01net, IBM, ESET, LeBigData, ITforBusiness, Next.ink, Solutions Numériques, Clubic, Le Courrier du Vietnam</p>
       </div>
-
-      <div class="conclusion" style="margin-top: 20px;">
-        <h3><i class="fas fa-certificate"></i> Compétences développées</h3>
-        <ul style="color: white; margin-left: 20px;">
-          <li>Analyse des tactiques d'attaque (MITRE ATT&CK, exfiltration, zero-day)</li>
-          <li>Veille réglementaire et géopolitique (Convention de Hanoï)</li>
-          <li>Évaluation des solutions défensives (sauvegardes immuables, CTI, IA)</li>
+      <div class="conclusion" style="margin-top:18px;">
+        <h3><i class="fas fa-certificate" style="margin-right:10px;"></i>Compétences développées</h3>
+        <ul>
+          <li>Analyse des tactiques d'attaque (MITRE ATT&amp;CK, exfiltration, zero-day, triple extorsion)</li>
+          <li>Veille réglementaire et géopolitique (Convention de Hanoï, coopérations transatlantiques)</li>
+          <li>Évaluation des solutions défensives (sauvegardes immuables, CTI, IA, hardware)</li>
+          <li>Suivi des acteurs du marché (Google/Wiz, ESET, Object First, BeyondTrust)</li>
           <li>Synthèse et vulgarisation pour différents publics</li>
         </ul>
       </div>
     </section>
+
   </div>
 
   <footer>
-    <p>© 2026 BEAGLE Jacky-Anaïs · BTS SIO · Veille cybersécurité</p>
+    <p>© 2026 BEAGLE Jacky-Anaïs </p>
   </footer>
 
-  <div class="back-to-top" id="backToTop">
-    <i class="fas fa-arrow-up"></i>
-  </div>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
   <script>
-    // Back to top
-    const backToTopBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTopBtn.classList.toggle('visible', window.pageYOffset > 300);
-    });
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 300));
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // Smooth scroll pour les ancres internes
-    document.querySelectorAll('.nav-links a, .top-nav a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        if (this.getAttribute('href').startsWith('#')) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) window.scrollTo({ top: target.offsetTop - 140, behavior: 'smooth' });
-        }
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 125, behavior: 'smooth' }); }
       });
     });
 
-    // Animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 100);
       });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.timeline-block, .tendance-card, .stat-card').forEach(el => {
-      observer.observe(el);
-    });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.event-card, .tendance-card, .stat-card').forEach(el => obs.observe(el));
   </script>
 </body>
-
 </html>

@@ -10,13 +10,13 @@
 
 <style>
 
-/* ================= VARIABLES ================= */
+/* ================= VARIABLES (tons identiques à veille.html) ================= */
 :root {
-    --marron-clair: #F0E1D0;
-    --marron-moyen: #D8C3A5;
-    --marron-fonce: #B7A18B;
-    --beige: #F8F0E5;
-    --beige-clair: #FDF9F5;
+    --marron-clair: #D2B48C;
+    --marron-moyen: #A67C52;
+    --marron-fonce: #8B4513;
+    --beige: #F5DEB3;
+    --beige-clair: #FAF0E6;
     --blanc: #FFFFFF;
     --texte-fonce: #5D4A3A;
     --shadow-small: 0 2px 5px rgba(0,0,0,0.1);
@@ -42,7 +42,7 @@ body {
     position: fixed;
     top: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(5px);
     padding: 15px 30px;
     display: flex;
@@ -63,14 +63,14 @@ body {
 }
 
 .top-nav a:hover {
-    color: #8B4513;
+    color: var(--marron-fonce);
     background: rgba(210, 180, 140, 0.2);
 }
 
 /* Style pour le lien actif */
 .top-nav a[href="Contact.html"] {
     background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen));
-    color: var(--texte-fonce);
+    color: white;
     box-shadow: var(--shadow-small);
 }
 
@@ -78,13 +78,13 @@ body {
 
 .contact-section {
     padding: 100px 5%;
-    background: linear-gradient(135deg, #F0E1D0, #E8D9C8);
+    background: linear-gradient(135deg, var(--beige), var(--beige-clair));
     color: var(--texte-fonce);
     position: relative;
     overflow: hidden;
     min-height: 100vh;
     margin-top: 0;
-    padding-top: 120px; /* Pour éviter la navbar fixe */
+    padding-top: 120px;
 }
 
 /* Fond animé */
@@ -123,28 +123,28 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #8B7A6B;
+    color: var(--marron-fonce);
     position: relative;
     display: inline-block;
-    padding-bottom: 10px;
+    padding-bottom: 14px;
 }
 
 .contact-title h2::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(to right, #D8C3A5, #B7A18B);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(to right, var(--marron-clair), var(--marron-moyen));
     border-radius: 2px;
 }
 
-/* Animation lettres */
 .animated-text {
     font-size: 1.8rem;
     font-weight: 600;
-    color: #9B8A7A;
+    color: var(--marron-moyen);
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
@@ -166,29 +166,33 @@ body {
 }
 
 .info-box {
-    background: rgba(255,255,255,0.3);
+    background: var(--blanc);
     padding: 25px;
     border-radius: 12px;
     margin-bottom: 20px;
-    backdrop-filter: blur(6px);
+    box-shadow: var(--shadow-medium);
     transition: 0.3s;
-    border: 1px solid rgba(255,255,255,0.5);
-    color: #6B5A4A;
+    border: 1px solid var(--beige);
+    color: var(--texte-fonce);
+    border-top: 4px solid var(--marron-clair);
 }
 
 .info-box:hover {
-    transform: translateY(-8px);
-    background: rgba(255,255,255,0.5);
+    transform: translateY(-7px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-top-color: var(--marron-moyen);
 }
 
 .info-box h4 {
     margin-bottom: 8px;
-    color: #8B7A6B;
+    color: var(--marron-fonce);
     font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
 }
 
 .info-box p {
     font-size: 1.1rem;
+    color: #555;
 }
 
 /* ================= FORMULAIRE ================= */
@@ -196,14 +200,13 @@ body {
 .contact-form {
     flex: 1;
     min-width: 300px;
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--blanc);
     padding: 40px;
-    border-radius: 15px;
+    border-radius: 16px;
     color: var(--texte-fonce);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-medium);
     animation: fadeUp 1s ease;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255,255,255,0.8);
+    border: 1px solid var(--beige);
 }
 
 @keyframes fadeUp {
@@ -220,20 +223,21 @@ body {
 .input-group textarea {
     width: 100%;
     padding: 12px;
-    border: 2px solid #E8D9C8;
+    border: 2px solid var(--beige);
     border-radius: 8px;
     outline: none;
     transition: 0.3s;
-    background: rgba(255,255,255,0.9);
+    background: var(--beige-clair);
     font-family: 'Raleway', sans-serif;
     font-size: 1rem;
+    color: var(--texte-fonce);
 }
 
 .input-group label {
     position: absolute;
     left: 15px;
     top: 12px;
-    color: #9B8A7A;
+    color: var(--marron-moyen);
     transition: 0.3s;
     pointer-events: none;
     background: transparent;
@@ -241,8 +245,9 @@ body {
 
 .input-group input:focus,
 .input-group textarea:focus {
-    border-color: #B7A18B;
-    box-shadow: 0 0 10px rgba(183, 161, 139, 0.3);
+    border-color: var(--marron-moyen);
+    box-shadow: 0 0 10px rgba(166, 124, 82, 0.2);
+    background: var(--blanc);
 }
 
 .input-group input:focus + label,
@@ -254,7 +259,7 @@ body {
     background: white;
     padding: 0 5px;
     font-size: 0.8rem;
-    color: #8B7A6B;
+    color: var(--marron-fonce);
 }
 
 /* ================= BOUTON ================= */
@@ -262,7 +267,7 @@ body {
 .contact-btn {
     width: 100%;
     padding: 15px;
-    background: linear-gradient(135deg, #D8C3A5, #C4B2A0);
+    background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen));
     border: none;
     color: white;
     border-radius: 8px;
@@ -275,9 +280,19 @@ body {
 }
 
 .contact-btn:hover {
-    background: linear-gradient(135deg, #C4B2A0, #B7A18B);
+    background: linear-gradient(135deg, var(--marron-moyen), var(--marron-fonce));
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen));
+    color: white;
+    margin-top: 0;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -357,7 +372,7 @@ body {
 
 <body>
 
-<!-- Top navigation intégrée -->
+<!-- Top navigation -->
 <nav class="top-nav" aria-label="Navigation supérieure">
     <a href="index.html">Accueil</a>
     <a href="entreprise.html">Entreprise</a>
@@ -423,7 +438,9 @@ body {
   </div>
 </section>
 
+<footer>
+    <p>© 2026 BEAGLE Jacky-Anaïs</p>
+</footer>
+
 </body>
-
 </html>
-

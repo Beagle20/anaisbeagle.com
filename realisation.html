@@ -230,6 +230,55 @@
     .download-btn .btn-title { font-size: 0.95rem; color: white; }
     .download-btn .btn-sub { font-size: 0.75rem; color: rgba(255,255,255,0.75); font-weight: 400; margin-top: 2px; }
 
+    /* ── ZONE DE DÉPÔT PDF ── */
+    .upload-zone {
+      border: 2px dashed rgba(255,255,255,0.6);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.1);
+      margin-top: 15px;
+    }
+    .upload-zone:hover, .upload-zone.drag-over {
+      background: rgba(255,255,255,0.25);
+      border-color: white;
+      transform: scale(1.01);
+    }
+    .upload-zone i { font-size: 2.2rem; color: white; margin-bottom: 10px; display: block; }
+    .upload-zone p { color: white; margin: 0; font-size: 0.95rem; }
+    .upload-zone .upload-hint { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: 6px; }
+    .upload-zone input[type="file"] { display: none; }
+
+    .file-uploaded {
+      display: none;
+      align-items: center; gap: 14px;
+      background: rgba(255,255,255,0.2);
+      border: 1.5px solid rgba(255,255,255,0.5);
+      border-radius: 10px; padding: 14px 18px; margin-top: 12px;
+    }
+    .file-uploaded.visible { display: flex; }
+    .file-uploaded i { font-size: 1.8rem; color: white; }
+    .file-uploaded .file-info { flex: 1; }
+    .file-uploaded .file-name { color: white; font-weight: 600; font-size: 0.95rem; }
+    .file-uploaded .file-size { color: rgba(255,255,255,0.7); font-size: 0.8rem; }
+    .file-uploaded .btn-open {
+      background: white; color: var(--marron-fonce);
+      border: none; padding: 8px 16px; border-radius: 8px;
+      font-family: 'Raleway', sans-serif; font-weight: 700;
+      font-size: 0.85rem; cursor: pointer; transition: all 0.3s;
+      text-decoration: none; display: inline-block;
+    }
+    .file-uploaded .btn-open:hover { background: var(--beige); transform: translateY(-2px); }
+    .file-uploaded .btn-remove {
+      background: rgba(255,255,255,0.15); border: none; color: white;
+      width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s; font-size: 1rem; flex-shrink: 0;
+    }
+    .file-uploaded .btn-remove:hover { background: rgba(255,0,0,0.3); }
+
     /* Modal */
     .modal {
       display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -316,16 +365,22 @@
     }
     .step-content h4 { margin-top: 0; color: var(--marron-fonce); }
 
-    /* Réseau badge pour modal TechNova */
     .service-badge {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 6px 14px; border-radius: 20px; font-size: 0.82rem;
       font-weight: 700; margin: 4px;
     }
-    .badge-apache  { background: var(--beige); color: var(--marron-fonce); border: 1px solid var(--marron-moyen); }
-    .badge-ftp     { background: var(--beige); color: var(--marron-fonce); border: 1px solid var(--marron-moyen); }
-    .badge-dns     { background: var(--beige); color: var(--marron-fonce); border: 1px solid var(--marron-moyen); }
-    .badge-ssh     { background: var(--beige); color: var(--marron-fonce); border: 1px solid var(--marron-moyen); }
+    .badge-squid { background: var(--beige); color: var(--marron-fonce); border: 1px solid var(--marron-moyen); }
+
+    /* Tableau récap filtrage */
+    .filter-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-small); }
+    .filter-table th { background: var(--marron-fonce); color: white; padding: 12px 16px; text-align: center; font-family: 'Playfair Display', serif; font-size: 0.95rem; }
+    .filter-table td { padding: 10px 16px; text-align: center; font-size: 0.9rem; border-bottom: 1px solid var(--marron-clair); }
+    .filter-table tr:nth-child(even) td { background: var(--beige-clair); }
+    .filter-table tr:nth-child(odd) td { background: var(--beige); }
+    .filter-table .ok  { color: #0f6e56; font-weight: 700; }
+    .filter-table .nok { color: #a32d2d; font-weight: 700; }
+
     .user-row {
       display:flex; align-items:center; gap:14px; background:var(--beige-clair);
       border-radius:10px; padding:14px 18px; margin-bottom:10px;
@@ -406,9 +461,7 @@
 
   <div class="container">
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION PROJETS
-    ════════════════════════════════════════════════════════ -->
+    <!-- ════ SECTION PROJETS ════ -->
     <section id="projets">
       <h2><i class="fas fa-project-diagram"></i> Mes Réalisations Professionnelles</h2>
       <p style="text-align:center;font-size:1.1rem;color:#555;margin-bottom:2rem;">
@@ -426,7 +479,6 @@
           </div>
           <div class="project-body">
             <p><strong>Objectif :</strong> Déployer une infrastructure réseau complète sur un poste Debian 12 en simulant l'environnement informatique de l'entreprise TechNova, avec gestion des services, des utilisateurs et des droits d'accès.</p>
-
             <div class="project-tech">
               <span class="tech-tag">Debian 12</span>
               <span class="tech-tag">Apache2</span>
@@ -435,7 +487,6 @@
               <span class="tech-tag">SSH</span>
               <span class="tech-tag">Linux</span>
             </div>
-
             <div class="project-features">
               <ul>
                 <li>Serveur web Apache2 — site intranet TechNova</li>
@@ -453,31 +504,31 @@
           </div>
         </div>
 
-        <!-- ── PROJET 2 : Projet Groupe ── -->
+        <!-- ── PROJET 2 : Proxy Squid ── -->
         <div class="project-card">
           <div class="project-number">02</div>
           <div class="project-header">
-            <h4><i class="fas fa-users"></i> Projet Groupe</h4>
-            <p>VM - Développement en autonomie</p>
+            <h4><i class="fas fa-filter"></i> Proxy filtrant Squid</h4>
+            <p>Authentification et filtrage web — Debian 12 / BTS SIO</p>
           </div>
           <div class="project-body">
-            <p><strong>Objectif :</strong> Développer en autonomie la gestion et l'administration de machines virtuelles en environnement collaboratif.</p>
-
+            <p><strong>Objectif :</strong> Mettre en place un proxy filtrant Squid sur Debian 12 (10.0.26.81) avec authentification par utilisateur et filtrage d'accès différencié, chaîné vers le proxy de sortie du serveur Tjener de l'établissement.</p>
             <div class="project-tech">
-              <span class="tech-tag">VirtualBox</span>
-              <span class="tech-tag">Debian</span>
+              <span class="tech-tag">Debian 12</span>
+              <span class="tech-tag">Squid</span>
+              <span class="tech-tag">htpasswd</span>
+              <span class="tech-tag">ACL</span>
               <span class="tech-tag">Réseau</span>
-              <span class="tech-tag">VM</span>
-              <span class="tech-tag">Collaboratif</span>
+              <span class="tech-tag">Ligne de commande</span>
             </div>
-
             <div class="project-features">
               <ul>
-                <li>Mise en place d'un environnement de virtualisation</li>
-                <li>Configuration réseau entre VMs</li>
-                <li>Travail en équipe sur l'infrastructure</li>
-                <li>Documentation des procédures</li>
-                <li>Présentation orale du projet</li>
+                <li>Installation et configuration de Squid sur Debian 12</li>
+                <li>Authentification Basic via htpasswd (utilisateurs toto et tata)</li>
+                <li>Filtrage différencié par utilisateur (ACL Squid)</li>
+                <li>Chaînage vers le proxy Tjener (10.0.2.2:3128)</li>
+                <li>Tests curl — codes 407, 403, 301, 302</li>
+                <li>Analyse des logs d'accès Squid</li>
               </ul>
             </div>
           </div>
@@ -490,9 +541,7 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION COMPÉTENCES
-    ════════════════════════════════════════════════════════ -->
+    <!-- ════ SECTION COMPÉTENCES ════ -->
     <section id="competences" style="background:var(--blanc);border-radius:15px;box-shadow:var(--shadow-medium);padding:2.5rem;margin-bottom:2.5rem;">
       <h2 style="font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--marron-fonce);margin-bottom:30px;text-align:center;position:relative;padding-bottom:15px;display:flex;align-items:center;justify-content:center;">
         <i class="fas fa-tasks" style="margin-right:15px;color:var(--marron-moyen);"></i> Compétences Validées
@@ -507,7 +556,6 @@
           <i class="fas fa-network-wired" style="margin-right:15px;color:var(--marron-moyen);"></i> Administration des systèmes et des réseaux
         </h3>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
-
           <div style="background:var(--beige-clair);border-radius:10px;padding:20px;box-shadow:var(--shadow-small);border-left:4px solid var(--marron-clair);display:flex;align-items:flex-start;">
             <div style="width:50px;height:50px;margin-right:15px;display:flex;align-items:center;justify-content:center;background:white;border-radius:10px;padding:8px;box-shadow:var(--shadow-small);flex-shrink:0;">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/proxmox/proxmox-original.svg" alt="Proxmox" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
@@ -515,56 +563,48 @@
             </div>
             <div><h4 style="margin:0 0 8px 0;color:var(--marron-fonce);font-size:1.1rem;">Proxmox</h4><p style="margin:0;color:#555;font-size:0.95rem;">Virtualisation de serveurs, création de VM, configuration de clusters, snapshots.</p></div>
           </div>
-
           <div style="background:var(--beige-clair);border-radius:10px;padding:20px;box-shadow:var(--shadow-small);border-left:4px solid var(--marron-clair);display:flex;align-items:flex-start;">
             <div style="width:50px;height:50px;margin-right:15px;display:flex;align-items:center;justify-content:center;background:white;border-radius:10px;padding:8px;box-shadow:var(--shadow-small);flex-shrink:0;">
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/langfr-1920px-Cisco_logo_blue_2016.svg.png" alt="Cisco" style="width:100%;height:100%;object-fit:contain;">
             </div>
             <div><h4 style="margin:0 0 8px 0;color:var(--marron-fonce);font-size:1.1rem;">Cisco</h4><p style="margin:0;color:#555;font-size:0.95rem;">Configuration routeurs, VLAN, adressage IP, routage statique/dynamique sur Packet Tracer.</p></div>
           </div>
-
           <div style="background:var(--beige-clair);border-radius:10px;padding:20px;box-shadow:var(--shadow-small);border-left:4px solid var(--marron-clair);display:flex;align-items:flex-start;">
             <div style="width:50px;height:50px;margin-right:15px;display:flex;align-items:center;justify-content:center;background:white;border-radius:10px;padding:8px;box-shadow:var(--shadow-small);flex-shrink:0;">
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Vmware_workstation_16_icon.svg/1280px-Vmware_workstation_16_icon.svg.png" alt="VMware" style="width:100%;height:100%;object-fit:contain;">
             </div>
             <div><h4 style="margin:0 0 8px 0;color:var(--marron-fonce);font-size:1.1rem;">VMware</h4><p style="margin:0;color:#555;font-size:0.95rem;">Virtualisation d'environnements Windows/Linux pour projets personnels et laboratoire.</p></div>
           </div>
-
           <div style="background:var(--beige-clair);border-radius:10px;padding:20px;box-shadow:var(--shadow-small);border-left:4px solid var(--marron-clair);display:flex;align-items:flex-start;">
             <div style="width:50px;height:50px;margin-right:15px;display:flex;align-items:center;justify-content:center;background:white;border-radius:10px;padding:8px;box-shadow:var(--shadow-small);flex-shrink:0;">
               <img src="virtual.png" alt="VirtualBox" style="width:100%;height:100%;object-fit:contain;">
             </div>
             <div><h4 style="margin:0 0 8px 0;color:var(--marron-fonce);font-size:1.1rem;">VirtualBox</h4><p style="margin:0;color:#555;font-size:0.95rem;">Virtualisation d'environnements Windows/Linux pour projets personnels et laboratoire.</p></div>
           </div>
-
           <div style="background:var(--beige-clair);border-radius:10px;padding:20px;box-shadow:var(--shadow-small);border-left:4px solid var(--marron-clair);display:flex;align-items:flex-start;">
             <div style="width:50px;height:50px;margin-right:15px;display:flex;align-items:center;justify-content:center;background:white;border-radius:10px;padding:8px;box-shadow:var(--shadow-small);flex-shrink:0;">
               <img src="docker.png" alt="Docker" style="width:100%;height:100%;object-fit:contain;">
             </div>
             <div><h4 style="margin:0 0 8px 0;color:var(--marron-fonce);font-size:1.1rem;">Docker</h4><p style="margin:0;color:#555;font-size:0.95rem;">Conteneurisation d'applications, création d'images, gestion de conteneurs, docker-compose.</p></div>
           </div>
-
           <div style="background:var(--beige-clair);border-radius:10px;padding:20px;box-shadow:var(--shadow-small);border-left:4px solid var(--marron-clair);display:flex;align-items:flex-start;">
             <div style="width:50px;height:50px;margin-right:15px;display:flex;align-items:center;justify-content:center;background:white;border-radius:10px;padding:8px;box-shadow:var(--shadow-small);flex-shrink:0;">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" style="width:100%;height:100%;object-fit:contain;">
             </div>
             <div><h4 style="margin:0 0 8px 0;color:var(--marron-fonce);font-size:1.1rem;">MySQL</h4><p style="margin:0;color:#555;font-size:0.95rem;">Création de bases de données, gestion des utilisateurs, sécurisation, requêtes SQL.</p></div>
           </div>
-
           <div style="background:var(--beige-clair);border-radius:10px;padding:20px;box-shadow:var(--shadow-small);border-left:4px solid var(--marron-clair);display:flex;align-items:flex-start;">
             <div style="width:50px;height:50px;margin-right:15px;display:flex;align-items:center;justify-content:center;background:white;border-radius:10px;padding:8px;box-shadow:var(--shadow-small);flex-shrink:0;">
               <img src="dns.jpg" alt="DNS" style="width:100%;height:100%;object-fit:contain;">
             </div>
             <div><h4 style="margin:0 0 8px 0;color:var(--marron-fonce);font-size:1.1rem;">DNS</h4><p style="margin:0;color:#555;font-size:0.95rem;">Configuration de zones DNS, résolution de noms, intégration avec Active Directory.</p></div>
           </div>
-
           <div style="background:var(--beige-clair);border-radius:10px;padding:20px;box-shadow:var(--shadow-small);border-left:4px solid var(--marron-clair);display:flex;align-items:flex-start;">
             <div style="width:50px;height:50px;margin-right:15px;display:flex;align-items:center;justify-content:center;background:white;border-radius:10px;padding:8px;box-shadow:var(--shadow-small);flex-shrink:0;">
               <img src="https://parikshapatr.com/uploads/1727942308.jpg" alt="DHCP" style="width:100%;height:100%;object-fit:contain;">
             </div>
             <div><h4 style="margin:0 0 8px 0;color:var(--marron-fonce);font-size:1.1rem;">DHCP</h4><p style="margin:0;color:#555;font-size:0.95rem;">Attribution automatique d'adresses IP sur Windows Server et Debian.</p></div>
           </div>
-
         </div>
       </div>
 
@@ -692,7 +732,7 @@
             <div style="width:50px;height:50px;margin-right:15px;display:flex;align-items:center;justify-content:center;background:white;border-radius:10px;padding:8px;box-shadow:var(--shadow-small);flex-shrink:0;">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-original.svg" alt="Debian" style="width:100%;height:100%;object-fit:contain;">
             </div>
-            <div><h4 style="margin:0 0 8px 0;color:var(--marron-fonce);font-size:1.1rem;">Debian</h4><p style="margin:0;color:#555;font-size:0.95rem;">Serveurs LAMP, SSH, DNS, FTP — environnement de TP BTS SIO SISR.</p></div>
+            <div><h4 style="margin:0 0 8px 0;color:var(--marron-fonce);font-size:1.1rem;">Debian</h4><p style="margin:0;color:#555;font-size:0.95rem;">Serveurs LAMP, SSH, DNS, FTP, proxy Squid — environnement BTS SIO SISR.</p></div>
           </div>
         </div>
       </div>
@@ -737,9 +777,7 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         BILAN
-    ════════════════════════════════════════════════════════ -->
+    <!-- ════ BILAN ════ -->
     <section id="bilan">
       <h2><i class="fas fa-chart-line"></i> Bilan des Réalisations</h2>
       <div class="conclusion">
@@ -756,11 +794,9 @@
       </div>
     </section>
 
-  </div><!-- /container -->
+  </div>
 
-  <!-- ════════════════════════════════════════════════════════════════════════
-       MODAL PROJET 1 — Infrastructure Linux TechNova
-  ════════════════════════════════════════════════════════════════════════ -->
+  <!-- ════ MODAL PROJET 1 — TechNova (inchangé) ════ -->
   <div id="modal1" class="modal">
     <div class="modal-content">
       <div class="modal-header">
@@ -768,25 +804,16 @@
         <button class="close-modal" onclick="closeModal('modal1')">&times;</button>
       </div>
       <div class="modal-body">
-
-        <div class="project-badge">
-          <i class="fas fa-puzzle-piece"></i> TP BTS SIO SISR — Administration Linux Debian 12
-        </div>
-
-        <!-- OBJECTIF -->
+        <div class="project-badge"><i class="fas fa-puzzle-piece"></i> TP BTS SIO SISR — Administration Linux Debian 12</div>
         <h3><i class="fas fa-bullseye"></i> Objectif du TP</h3>
         <p>J'ai déployé une infrastructure réseau complète sur mon poste Debian 12 en simulant l'environnement informatique de l'entreprise TechNova. L'objectif était de configurer et administrer plusieurs services réseau en ligne de commande, gérer des utilisateurs avec des droits différenciés, et rendre l'ensemble accessible via un nom de domaine interne.</p>
-
-        <!-- SERVICES DÉPLOYÉS -->
         <h3><i class="fas fa-cogs"></i> Services déployés</h3>
         <div style="margin:10px 0 20px 0;">
-          <span class="service-badge badge-apache"><i class="fas fa-globe"></i> Apache2 — Port 80</span>
-          <span class="service-badge badge-ftp"><i class="fas fa-folder-open"></i> vsftpd FTP — Port 21</span>
-          <span class="service-badge badge-dns"><i class="fas fa-search"></i> BIND9 DNS — Port 53</span>
-          <span class="service-badge badge-ssh"><i class="fas fa-terminal"></i> SSH — Port 22</span>
+          <span class="service-badge badge-squid"><i class="fas fa-globe"></i> Apache2 — Port 80</span>
+          <span class="service-badge badge-squid"><i class="fas fa-folder-open"></i> vsftpd FTP — Port 21</span>
+          <span class="service-badge badge-squid"><i class="fas fa-search"></i> BIND9 DNS — Port 53</span>
+          <span class="service-badge badge-squid"><i class="fas fa-terminal"></i> SSH — Port 22</span>
         </div>
-
-        <!-- ARCHITECTURE -->
         <h3><i class="fas fa-sitemap"></i> Architecture réseau</h3>
         <div class="architecture-grid">
           <div class="arch-card">
@@ -800,89 +827,32 @@
             <h4><i class="fas fa-network-wired"></i> Switch réseau</h4>
             <div class="ip-address">10.0.0.1</div>
             <p><strong>Rôle :</strong> Commutation LAN</p>
-            <p><strong>Connecté à :</strong> Mon PC + Autre PC</p>
           </div>
           <div class="arch-card">
             <h4><i class="fas fa-server"></i> Tjener (passerelle)</h4>
             <div class="ip-address">10.0.2.2</div>
             <p><strong>Rôle :</strong> Passerelle vers Internet</p>
-            <p><strong>Connecté via :</strong> le switch LAN</p>
           </div>
         </div>
-
-        <!-- UTILISATEURS -->
         <h3><i class="fas fa-users"></i> Gestion des utilisateurs et des droits</h3>
         <div class="user-row">
           <div class="user-avatar" style="background:var(--marron-clair);color:var(--marron-fonce);">A</div>
-          <div style="flex:1;">
-            <strong style="color:var(--marron-fonce);">alice</strong>
-            <span style="font-size:0.85rem;color:#555;margin-left:10px;">UID 1005 — groupes : alice, users, <strong>admin, dev</strong></span>
-          </div>
+          <div style="flex:1;"><strong style="color:var(--marron-fonce);">alice</strong><span style="font-size:0.85rem;color:#555;margin-left:10px;">groupes : admin, dev</span></div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <span style="background:var(--beige);color:var(--marron-fonce);padding:3px 10px;border-radius:12px;font-size:0.78rem;border:1px solid var(--marron-moyen);">✓ FTP /home/alice</span>
-            <span style="background:var(--beige);color:var(--marron-fonce);padding:3px 10px;border-radius:12px;font-size:0.78rem;border:1px solid var(--marron-moyen);">✓ Écrit /srv/dev</span>
+            <span style="background:var(--beige);color:var(--marron-fonce);padding:3px 10px;border-radius:12px;font-size:0.78rem;border:1px solid var(--marron-moyen);">✓ FTP</span>
+            <span style="background:var(--beige);color:var(--marron-fonce);padding:3px 10px;border-radius:12px;font-size:0.78rem;border:1px solid var(--marron-moyen);">✓ /srv/dev</span>
             <span style="background:var(--beige);color:var(--marron-fonce);padding:3px 10px;border-radius:12px;font-size:0.78rem;border:1px solid var(--marron-moyen);">✓ SSH</span>
           </div>
         </div>
         <div class="user-row">
           <div class="user-avatar" style="background:var(--marron-moyen);color:white;">B</div>
-          <div style="flex:1;">
-            <strong style="color:var(--marron-fonce);">bob</strong>
-            <span style="font-size:0.85rem;color:#555;margin-left:10px;">UID 1006 — groupes : bob, users, <strong>compta</strong></span>
-          </div>
+          <div style="flex:1;"><strong style="color:var(--marron-fonce);">bob</strong><span style="font-size:0.85rem;color:#555;margin-left:10px;">groupes : compta</span></div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <span style="background:var(--beige);color:var(--marron-fonce);padding:3px 10px;border-radius:12px;font-size:0.78rem;border:1px solid var(--marron-moyen);">✓ FTP /home/bob</span>
-            <span style="background:var(--marron-clair);color:var(--marron-fonce);padding:3px 10px;border-radius:12px;font-size:0.78rem;border:1px solid var(--marron-fonce);">✗ /srv/dev refusé</span>
+            <span style="background:var(--beige);color:var(--marron-fonce);padding:3px 10px;border-radius:12px;font-size:0.78rem;border:1px solid var(--marron-moyen);">✓ FTP</span>
+            <span style="background:var(--marron-clair);color:var(--marron-fonce);padding:3px 10px;border-radius:12px;font-size:0.78rem;">✗ /srv/dev refusé</span>
             <span style="background:var(--beige);color:var(--marron-fonce);padding:3px 10px;border-radius:12px;font-size:0.78rem;border:1px solid var(--marron-moyen);">✓ SSH</span>
           </div>
         </div>
-
-        <!-- COMMANDES CLÉS -->
-        <h3><i class="fas fa-terminal"></i> Commandes clés utilisées</h3>
-        <div class="code-block"><code>
-<span class="comment"># Création des groupes</span><br>
-<span class="command">groupadd</span> admin<br>
-<span class="command">groupadd</span> dev<br>
-<span class="command">groupadd</span> compta<br>
-<br>
-<span class="comment"># Création des utilisateurs</span><br>
-<span class="command">adduser</span> alice<br>
-<span class="command">adduser</span> bob<br>
-<br>
-<span class="comment"># Attribution des groupes</span><br>
-<span class="command">usermod</span> -aG dev alice<br>
-<span class="command">usermod</span> -aG admin alice<br>
-<span class="command">usermod</span> -aG compta bob<br>
-<br>
-<span class="comment"># Permissions sur /srv/dev</span><br>
-<span class="command">chown</span> root:dev /srv/dev<br>
-<span class="command">chmod</span> 770 /srv/dev<br>
-<br>
-<span class="comment"># DNS — test de résolution</span><br>
-<span class="command">nslookup</span> web.technova.local 127.0.0.1<br>
-<br>
-<span class="comment"># Vérification des services</span><br>
-<span class="command">ss</span> -tulpn | grep 80<br>
-<span class="command">ss</span> -tulpn | grep 21<br>
-<span class="command">ss</span> -tulpn | grep 22<br>
-<span class="command">ss</span> -tulpn | grep 53<br>
-        </code></div>
-
-        <!-- RÉSOLUTION DNS -->
-        <h3><i class="fas fa-search"></i> Résolution du domaine technova.local</h3>
-        <p>J'ai utilisé deux mécanismes complémentaires pour que <strong>http://technova.local</strong> fonctionne :</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:15px 0;">
-          <div style="background:var(--beige-clair);border:1px solid var(--marron-moyen);border-radius:10px;padding:18px;border-left:4px solid var(--marron-moyen);">
-            <h4 style="color:var(--marron-fonce);margin-top:0;"><i class="fas fa-database"></i> BIND9 (DNS interne)</h4>
-            <p style="color:var(--texte-fonce);font-size:0.9rem;margin:0;">Résout technova.local pour toutes les machines du réseau local qui interrogent mon DNS.</p>
-          </div>
-          <div style="background:var(--beige-clair);border:1px solid var(--marron-clair);border-radius:10px;padding:18px;border-left:4px solid var(--marron-clair);">
-            <h4 style="color:var(--marron-fonce);margin-top:0;"><i class="fas fa-file-alt"></i> /etc/hosts (local)</h4>
-            <p style="color:var(--texte-fonce);font-size:0.9rem;margin:0;">Ligne ajoutée : <code style="color:var(--marron-fonce);font-weight:bold;">10.0.26.81 technova.local</code> — prioritaire sur le DNS, garantit l'accès local.</p>
-          </div>
-        </div>
-
-        <!-- SECTION TÉLÉCHARGEMENT -->
         <h3><i class="fas fa-download"></i> Documentation du projet</h3>
         <div class="download-section">
           <h3><i class="fas fa-file-pdf"></i> Télécharger la documentation</h3>
@@ -897,67 +867,247 @@
             </a>
           </div>
         </div>
+        <div class="conclusion">
+          <h4><i class="fas fa-award"></i> Bilan du projet</h4>
+          <p>Ce TP m'a permis de déployer une infrastructure Linux complète en ligne de commande : quatre services réseau, gestion des utilisateurs avec le principe du moindre privilège, domaine technova.local accessible via DNS BIND9.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ MODAL PROJET 2 — Proxy Squid ════ -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-filter"></i> Proxy filtrant Squid — Debian 12 / BTS SIO</h3>
+        <button class="close-modal" onclick="closeModal('modal2')">&times;</button>
+      </div>
+      <div class="modal-body">
+
+        <div class="project-badge">
+          <i class="fas fa-puzzle-piece"></i> Projet E5 BTS SIO SISR — Administration Réseau Debian 12
+        </div>
+
+        <!-- OBJECTIF -->
+        <h3><i class="fas fa-bullseye"></i> Objectif du projet</h3>
+        <p>Mise en place d'un proxy filtrant Squid sur mon PC Debian 12 (10.0.26.81) dans l'environnement réseau du BTS (10.0.0.0/8). Le proxy gère l'authentification des utilisateurs et le filtrage d'accès différencié, puis chaîne les requêtes vers le proxy de sortie du serveur Tjener (10.0.2.2:3128) de l'établissement. Tout est réalisé uniquement en ligne de commande.</p>
+
+        <!-- SERVICES DÉPLOYÉS -->
+        <h3><i class="fas fa-cogs"></i> Composants déployés</h3>
+        <div style="margin:10px 0 20px 0;">
+          <span class="service-badge badge-squid"><i class="fas fa-filter"></i> Squid 5.7 — Port 3128</span>
+          <span class="service-badge badge-squid"><i class="fas fa-key"></i> htpasswd — Auth Basic</span>
+          <span class="service-badge badge-squid"><i class="fas fa-ban"></i> ACL — Filtrage par domaine</span>
+          <span class="service-badge badge-squid"><i class="fas fa-link"></i> cache_peer — Chaînage Tjener</span>
+        </div>
+
+        <!-- ARCHITECTURE RÉSEAU -->
+        <h3><i class="fas fa-sitemap"></i> Architecture réseau simplifiée</h3>
+        <div class="architecture-grid">
+          <div class="arch-card">
+            <h4><i class="fas fa-laptop"></i> Mon PC — PC2</h4>
+            <div class="ip-address">10.0.26.81</div>
+            <p><strong>Salle :</strong> E63</p>
+            <p><strong>Service :</strong> Squid :3128</p>
+            <p><strong>Utilisateurs :</strong> toto / tata</p>
+          </div>
+          <div class="arch-card">
+            <h4><i class="fas fa-network-wired"></i> Switch LAN</h4>
+            <div class="ip-address">10.0.0.1</div>
+            <p><strong>Réseau :</strong> 10.0.0.0/8</p>
+            <p><strong>Connecté à :</strong> PC1, PC2, Tjener</p>
+          </div>
+          <div class="arch-card">
+            <h4><i class="fas fa-server"></i> Tjener — Proxy sortie</h4>
+            <div class="ip-address">10.0.2.2</div>
+            <p><strong>Salle :</strong> E62</p>
+            <p><strong>Rôle :</strong> Proxy vers Internet</p>
+            <p><strong>Port :</strong> 3128</p>
+          </div>
+        </div>
+        <p style="text-align:center;font-weight:600;color:var(--marron-fonce);margin:10px 0 20px;">
+          Flux : Client → Squid PC2 (10.0.26.81:3128) → Tjener (10.0.2.2:3128) → Internet
+        </p>
+
+        <!-- UTILISATEURS -->
+        <h3><i class="fas fa-users"></i> Gestion des utilisateurs proxy</h3>
+        <div class="user-row">
+          <div class="user-avatar" style="background:var(--marron-clair);color:var(--marron-fonce);">T</div>
+          <div style="flex:1;"><strong style="color:var(--marron-fonce);">toto</strong><span style="font-size:0.85rem;color:#555;margin-left:10px;">Utilisateur standard — accès large</span></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#e1f5ee;color:#0f6e56;padding:3px 10px;border-radius:12px;font-size:0.78rem;border:1px solid #0f6e56;">✓ youtube.com</span>
+            <span style="background:var(--marron-clair);color:var(--marron-fonce);padding:3px 10px;border-radius:12px;font-size:0.78rem;">✗ facebook.com</span>
+          </div>
+        </div>
+        <div class="user-row">
+          <div class="user-avatar" style="background:var(--marron-moyen);color:white;">T</div>
+          <div style="flex:1;"><strong style="color:var(--marron-fonce);">tata</strong><span style="font-size:0.85rem;color:#555;margin-left:10px;">Utilisateur restreint</span></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:var(--marron-clair);color:var(--marron-fonce);padding:3px 10px;border-radius:12px;font-size:0.78rem;">✗ youtube.com</span>
+            <span style="background:var(--marron-clair);color:var(--marron-fonce);padding:3px 10px;border-radius:12px;font-size:0.78rem;">✗ facebook.com</span>
+          </div>
+        </div>
+
+        <!-- TABLEAU RÉCAP FILTRAGE -->
+        <h3><i class="fas fa-table"></i> Tableau récapitulatif des droits</h3>
+        <table class="filter-table">
+          <thead>
+            <tr>
+              <th>Utilisateur</th>
+              <th>Sans auth</th>
+              <th>facebook / insta / tiktok</th>
+              <th>youtube / twitch</th>
+              <th>debian.org</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Aucun</strong></td>
+              <td class="nok">407 Refusé</td>
+              <td>—</td><td>—</td><td>—</td>
+            </tr>
+            <tr>
+              <td><strong>toto</strong></td>
+              <td>—</td>
+              <td class="nok">403 Bloqué</td>
+              <td class="ok">301 Autorisé</td>
+              <td class="ok">302 Autorisé</td>
+            </tr>
+            <tr>
+              <td><strong>tata</strong></td>
+              <td>—</td>
+              <td class="nok">403 Bloqué</td>
+              <td class="nok">403 Bloqué</td>
+              <td class="ok">302 Autorisé</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- COMMANDES CLÉS -->
+        <h3><i class="fas fa-terminal"></i> Étapes de configuration</h3>
+        <div class="step-container">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Installation de Squid et htpasswd</h4>
+              <div class="code-block"><code>
+<span class="command">apt update</span> &amp;&amp; <span class="command">apt install</span> squid apache2-utils -y<br>
+<span class="command">systemctl enable</span> squid
+              </code></div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Création des utilisateurs système et proxy</h4>
+              <div class="code-block"><code>
+<span class="command">adduser</span> toto &amp;&amp; <span class="command">adduser</span> tata<br>
+<span class="command">htpasswd</span> -c /etc/squid/passwd toto<br>
+<span class="command">htpasswd</span> /etc/squid/passwd tata
+              </code></div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Listes de sites bloqués</h4>
+              <div class="code-block"><code>
+<span class="comment"># /etc/squid/blocked_sites.txt (tous)</span><br>
+facebook.com | instagram | tiktok.com | x.com<br><br>
+<span class="comment"># /etc/squid/blocked_tata.txt (tata uniquement)</span><br>
+youtube.com | twitch.tv
+              </code></div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Configuration squid.conf</h4>
+              <div class="code-block"><code>
+<span class="command">http_port</span> 3128<br>
+auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwd<br>
+auth_param basic realm <span class="comment">"Proxy BTS"</span><br><br>
+acl utilisateurs_auth proxy_auth REQUIRED<br>
+acl user_tata         proxy_auth tata<br>
+acl sites_bloques     dstdomain <span class="comment">"/etc/squid/blocked_sites.txt"</span><br>
+acl sites_bloques_tata dstdomain <span class="comment">"/etc/squid/blocked_tata.txt"</span><br><br>
+http_access deny sites_bloques<br>
+http_access deny user_tata sites_bloques_tata<br>
+http_access allow utilisateurs_auth bts_network<br>
+http_access deny all<br><br>
+<span class="comment"># Chaînage vers le Tjener</span><br>
+cache_peer 10.0.2.2 parent 3128 0 no-query default<br>
+never_direct allow all
+              </code></div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h4>Tests de validation</h4>
+              <div class="code-block"><code>
+<span class="comment"># Sans auth → 407</span><br>
+<span class="command">curl</span> -x http://10.0.26.81:3128 -I http://debian.org<br><br>
+<span class="comment"># toto facebook → 403 bloqué</span><br>
+<span class="command">curl</span> -x http://toto:toto@10.0.26.81:3128 -I http://facebook.com<br><br>
+<span class="comment"># tata youtube → 403 bloqué</span><br>
+<span class="command">curl</span> -x http://tata:tata@10.0.26.81:3128 -I http://youtube.com<br><br>
+<span class="comment"># Analyse des logs</span><br>
+grep <span class="comment">" toto "</span> /var/log/squid/access.log | awk <span class="comment">'{print $7}'</span> | sort | uniq -c
+              </code></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIMITE HTTPS -->
+        <h3><i class="fas fa-exclamation-triangle"></i> Limite identifiée — HTTPS</h3>
+        <div style="background:var(--beige);border-left:5px solid var(--marron-moyen);border-radius:8px;padding:18px;margin:10px 0 20px;">
+          <p style="margin:0;color:var(--texte-fonce);">Squid ne filtre pas le trafic <strong>HTTPS</strong> par défaut car il est chiffré de bout en bout. Les navigateurs modernes forçant le HTTPS, le filtrage navigateur reste inefficace. La solution serait le <strong>SSL Bump</strong> (interception SSL avec certificat propre) — perspective d'amélioration hors périmètre de ce TP.</p>
+        </div>
+
+        <!-- DOCUMENTATION -->
+        <h3><i class="fas fa-folder-open"></i> Documentation du projet</h3>
+        <div class="download-section">
+          <h3><i class="fas fa-file-pdf"></i> Documentation Projet E5 — Proxy Squid</h3>
+          <p>Consultez ou téléchargez le rapport complet du projet : configurations, captures d'écran et preuves de fonctionnement.</p>
+          <div class="download-grid">
+            <a class="download-btn" href="TP_E5_Squid_Final.pdf" target="_blank">
+              <div class="btn-icon"><i class="fas fa-file-pdf"></i></div>
+              <div class="btn-text">
+                <span class="btn-title">Rapport Proxy Squid — Projet E5</span>
+                <span class="btn-sub">Cliquer pour consulter le PDF</span>
+              </div>
+            </a>
+          </div>
+        </div>
 
         <!-- COMPÉTENCES -->
         <h3><i class="fas fa-tasks"></i> Compétences BTS SIO mobilisées</h3>
         <div class="skills-grid">
           <div class="skill-item">
             <h5><i class="fas fa-check-circle"></i> Gérer le patrimoine informatique</h5>
-            <p>Gestion des comptes utilisateurs, des groupes, des droits d'accès et des services sur le poste Debian 12.</p>
+            <p>Gestion des comptes utilisateurs, des droits d'accès proxy et des règles de filtrage par profil.</p>
           </div>
           <div class="skill-item">
             <h5><i class="fas fa-server"></i> Mettre à disposition un service</h5>
-            <p>Déploiement d'Apache2, vsftpd, BIND9 et SSH — tous accessibles et opérationnels sur le réseau local.</p>
+            <p>Déploiement de Squid opérationnel sur le réseau BTS, accessible depuis les autres postes.</p>
           </div>
           <div class="skill-item">
             <h5><i class="fas fa-shield-alt"></i> Sécuriser les accès</h5>
-            <p>Permissions Linux (chmod 770), accès FTP restreint aux utilisateurs locaux, SSH sans root direct.</p>
+            <p>Authentification obligatoire (407 sans auth), filtrage par liste de domaines, chaînage sécurisé.</p>
           </div>
           <div class="skill-item">
             <h5><i class="fas fa-wrench"></i> Diagnostiquer et documenter</h5>
-            <p>Utilisation des logs (auth.log, journalctl), vérification des ports (ss -tulpn), documentation complète.</p>
+            <p>Tests curl avec codes HTTP (407/403/301/302), analyse des logs Squid, documentation complète.</p>
           </div>
         </div>
 
         <div class="conclusion">
           <h4><i class="fas fa-award"></i> Bilan du projet</h4>
-          <p>Ce TP m'a permis de déployer une infrastructure Linux complète et cohérente en ligne de commande. J'ai configuré quatre services réseau, géré les utilisateurs et leurs droits selon le principe du moindre privilège, et mis en place un domaine interne technova.local accessible par son nom grâce au DNS BIND9 et au fichier /etc/hosts.</p>
-          <p style="margin-top:15px;"><strong>Résultat clé :</strong> http://technova.local s'affiche dans le navigateur — preuve que le DNS, Apache2, la gestion des droits et les comptes utilisateurs fonctionnent tous ensemble de bout en bout.</p>
+          <p>Ce projet E5 m'a permis de déployer un proxy filtrant Squid fonctionnel sur le réseau réel du BTS. L'authentification Basic via htpasswd fonctionne, le filtrage différencié par utilisateur est opérationnel, et le chaînage vers le Tjener est confirmé par les en-têtes Via dans les réponses HTTP.</p>
+          <p style="margin-top:15px;"><strong>Résultat clé :</strong> curl retourne 407 sans auth, 403 sur les sites bloqués, 301/302 sur les sites autorisés — preuve complète que la chaîne Squid → Tjener → Internet fonctionne de bout en bout.</p>
         </div>
 
-      </div>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════════════════════════════════════════════════
-       MODAL PROJET 2 — Projet Groupe (inchangé)
-  ════════════════════════════════════════════════════════════════════════ -->
-  <div id="modal2" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3><i class="fas fa-graduation-cap"></i> Projet BTS SIO - Base de connaissances collaborative</h3>
-        <button class="close-modal" onclick="closeModal('modal2')">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;flex-wrap:wrap;">
-          <div class="project-badge" style="background:linear-gradient(135deg,var(--marron-fonce),var(--marron-moyen));color:white;font-size:1.1rem;padding:10px 25px;">
-            <i class="fas fa-crown"></i> SISR1 - Responsable Infrastructure
-          </div>
-          <div style="background:var(--beige-clair);padding:8px 20px;border-radius:30px;font-weight:600;">
-            <i class="fas fa-users"></i> Équipe de 4 | SISR1 + SISR2 + SLAM1 + SLAM2
-          </div>
-        </div>
-        <div style="background:var(--beige-clair);padding:20px;border-radius:12px;border-left:6px solid var(--marron-moyen);margin-bottom:30px;">
-          <p style="margin:0;font-size:1.05rem;">
-            <strong>🎯 Mon périmètre :</strong> Conception et déploiement de l'infrastructure réseau et virtualisée.<br>
-            <strong>📆 8 semaines :</strong> Architecture → Déploiement VMs → Performance → Documentation.<br>
-            <strong>🤝 Livraison aux SLAM :</strong> VM-WEB opérationnelle en semaine 3.
-          </p>
-        </div>
-        <div class="conclusion">
-          <h4><i class="fas fa-trophy"></i> Bilan - Responsable Infrastructure</h4>
-          <p>En tant que SISR1 - Responsable Infrastructure, j'ai conçu et déployé l'intégralité de l'infrastructure du projet. J'ai livré la VM-WEB aux développeurs dès la semaine 3, leur permettant de démarrer le développement dans les délais. L'infrastructure est sécurisée, documentée et 100% opérationnelle.</p>
-        </div>
       </div>
     </div>
   </div>
@@ -973,14 +1123,17 @@
   </div>
 
   <script>
+    // ── Modals ──
     function openModal(id) { document.getElementById(id).style.display='block'; document.body.style.overflow='hidden'; }
     function closeModal(id) { document.getElementById(id).style.display='none'; document.body.style.overflow='auto'; }
     window.onclick = e => { if(e.target.classList.contains('modal')){ e.target.style.display='none'; document.body.style.overflow='auto'; } }
 
+    // ── Back to top ──
     const btn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => btn.classList.toggle('visible', window.pageYOffset > 300));
     btn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
 
+    // ── Nav smooth scroll ──
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.addEventListener('click', e => {
         e.preventDefault();
@@ -988,6 +1141,60 @@
         if(t) window.scrollTo({top: t.offsetTop - 80, behavior:'smooth'});
       });
     });
+
+    // ── Upload PDF ──
+    let uploadedFileURL = null;
+
+    function handlePdfUpload(input) {
+      const file = input.files[0];
+      if (!file) return;
+      showUploadedFile(file);
+    }
+
+    function showUploadedFile(file) {
+      if (file.type !== 'application/pdf') {
+        alert('Veuillez sélectionner un fichier PDF.');
+        return;
+      }
+      uploadedFileURL = URL.createObjectURL(file);
+      const size = (file.size / 1024).toFixed(0) + ' Ko';
+
+      document.getElementById('file-uploaded-name').textContent = file.name;
+      document.getElementById('file-uploaded-size').textContent = size;
+      document.getElementById('file-uploaded-link').href = uploadedFileURL;
+      document.getElementById('file-uploaded-info').classList.add('visible');
+      document.getElementById('upload-zone-squid').style.display = 'none';
+
+      // Activer aussi le bouton télécharger
+      const btnDL = document.getElementById('btn-download-squid');
+      btnDL.href = uploadedFileURL;
+      btnDL.download = file.name;
+      btnDL.style.display = 'flex';
+    }
+
+    function removeFile() {
+      if (uploadedFileURL) URL.revokeObjectURL(uploadedFileURL);
+      uploadedFileURL = null;
+      document.getElementById('file-uploaded-info').classList.remove('visible');
+      document.getElementById('upload-zone-squid').style.display = 'block';
+      document.getElementById('upload-squid').value = '';
+      document.getElementById('btn-download-squid').style.display = 'none';
+    }
+
+    // ── Drag & Drop ──
+    function dragOver(e) {
+      e.preventDefault();
+      document.getElementById('upload-zone-squid').classList.add('drag-over');
+    }
+    function dragLeave(e) {
+      document.getElementById('upload-zone-squid').classList.remove('drag-over');
+    }
+    function dropFile(e) {
+      e.preventDefault();
+      document.getElementById('upload-zone-squid').classList.remove('drag-over');
+      const file = e.dataTransfer.files[0];
+      if (file) showUploadedFile(file);
+    }
   </script>
 </body>
 </html>

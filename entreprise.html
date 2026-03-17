@@ -36,7 +36,6 @@
       overflow-x: hidden;
     }
 
-    /* TOP NAVIGATION - Style identique aux pages Contact, E5 et Veille */
     .top-nav {
       position: fixed;
       top: 0;
@@ -66,7 +65,6 @@
       background: rgba(210, 180, 140, 0.2);
     }
 
-    /* Style pour le lien actif */
     .top-nav a[href="entreprise.html"] {
       background: linear-gradient(135deg, var(--marron-clair), var(--marron-moyen));
       color: var(--texte-fonce);
@@ -110,7 +108,6 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Navigation secondaire (liens internes stages) */
     .stage-nav {
       position: sticky;
       top: 60px;
@@ -170,59 +167,6 @@
       max-width: 1200px;
       margin: 0 auto 4rem;
       padding: 0 1rem;
-    }
-
-    .stage-selection {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .stage-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .stage-tab {
-      background: var(--blanc);
-      padding: 2rem 3rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(139, 69, 19, 0.1);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 3px solid transparent;
-      text-align: center;
-      width: 280px;
-    }
-
-    .stage-tab:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(139, 69, 19, 0.2);
-    }
-
-    .stage-tab.active {
-      border-color: var(--marron-moyen);
-      background: linear-gradient(135deg, var(--beige-clair), var(--beige));
-    }
-
-    .stage-tab i {
-      font-size: 2.5rem;
-      color: var(--marron-moyen);
-      margin-bottom: 1rem;
-    }
-
-    .stage-tab h3 {
-      font-family: 'Playfair Display', serif;
-      color: var(--marron-fonce);
-      margin-bottom: 0.5rem;
-      font-size: 1.4rem;
-    }
-
-    .stage-tab p {
-      color: #666;
-      font-size: 0.95rem;
     }
 
     .stage-content {
@@ -560,7 +504,6 @@
         grid-template-columns: 1fr;
         gap: 2rem;
       }
-      
       .glpi-image-large {
         height: 300px;
       }
@@ -571,7 +514,6 @@
         padding: 10px 20px;
         gap: 15px;
       }
-      
       .top-nav a {
         font-size: 0.85rem;
         padding: 4px 8px;
@@ -584,47 +526,33 @@
         min-height: 350px;
         margin-top: 50px;
       }
-      
       .stage-nav {
         top: 50px;
       }
-      
       .stage-nav-links {
         gap: 1rem;
       }
-      
       .stage-nav-links a {
         padding: 0.4rem 1rem;
         font-size: 0.9rem;
       }
-      
-      .stage-tabs {
-        flex-direction: column;
-        align-items: center;
-      }
-      
       section {
         padding: 1.8rem;
       }
-      
       h2 {
         font-size: 1.8rem;
       }
-      
       .image-gallery, .glpi-gallery-large {
         grid-template-columns: 1fr;
       }
-      
       .presentation-container {
         flex-direction: column;
       }
-      
       .presentation-images {
         width: 100%;
         max-width: 30rem;
         margin: 0 auto;
       }
-      
       .top-nav {
         flex-wrap: wrap;
         justify-content: flex-end;
@@ -634,7 +562,6 @@
         padding: 10px 15px;
         gap: 8px;
       }
-      
       .top-nav a {
         font-size: 0.8rem;
         white-space: nowrap;
@@ -645,45 +572,31 @@
       .hero {
         margin-top: 80px;
       }
-      
       .hero-content h1 {
         font-size: 1.8rem;
       }
-      
-      .stage-tab {
-        width: 100%;
-        max-width: 300px;
-        padding: 1.5rem;
-      }
-      
       .logo-img {
         height: 5rem;
       }
-      
       .glpi-image-large {
         height: 250px;
       }
-      
       .top-nav {
         flex-wrap: wrap;
         padding: 8px 10px;
       }
-      
       .top-nav a {
         font-size: 0.75rem;
         padding: 3px 6px;
       }
-      
       .stage-nav {
         top: 80px;
       }
-      
       .stage-nav-links {
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
       }
-      
       .stage-nav-links a {
         width: 200px;
         justify-content: center;
@@ -708,7 +621,6 @@
       gap: 2rem;
     }
 
-    /* -------- TABLEAU COMPARAISON -------- */
     .comparaison-table-simple {
       overflow-x: auto;
       margin: 2rem 0;
@@ -744,7 +656,6 @@
       color: var(--marron-fonce);
     }
 
-    /* -------- STAGE2 SECTION : LOGOS BIEN AJUSTÉS -------- */
     .stage2-section .specs-card {
       display: flex;
       flex-direction: column;
@@ -789,13 +700,11 @@
       line-height: 1.5;
     }
 
-    /* Responsive pour les logos */
     @media (max-width: 768px) {
       .stage2-section .tool-img {
         height: 60px;
         max-width: 100px;
       }
-      
       .stage2-section .specs-card {
         padding: 20px 12px;
       }
@@ -806,7 +715,6 @@
         height: 50px;
         max-width: 90px;
       }
-      
       .stage2-section .specs-card h4 {
         font-size: 1.1rem;
         min-height: 3rem;
@@ -816,7 +724,6 @@
 </head>
 <body>
 
-  <!-- Top navigation - style identique à Contact, E5 et Veille -->
   <nav class="top-nav" aria-label="Navigation supérieure">
     <a href="index.html">Accueil</a>
     <a href="entreprise.html">Entreprise</a>
@@ -833,7 +740,6 @@
     </div>
   </header>
 
-  <!-- Navigation secondaire (liens internes stages) -->
   <nav class="stage-nav">
     <div class="stage-nav-container">
       <ul class="stage-nav-links">
@@ -843,13 +749,14 @@
     </div>
   </nav>
 
-  
+  <div class="container">
+
     <!-- STAGE 1 CONTENT -->
     <div id="stage1-content" class="stage-content active">
       <section id="stage1">
         <h2>Stage 1 : Centre Technique Municipal de Montigny-lès-Cormeilles</h2>
         <div class="logo-container">
-          <img src="photo/logo.png" alt="Logo de Montigny-lès-Cormeilles" class="logo-img">
+          <img src="logo.png" alt="Logo de Montigny-lès-Cormeilles" class="logo-img">
         </div>
         <p>Montigny-lès-Cormeilles est une commune dynamique du Val-d'Oise comptant environ 23 000 habitants. Le Centre Technique Municipal assure l'entretien et la maintenance des infrastructures de la ville.</p>
         
@@ -859,7 +766,7 @@
           </div>
           <div class="presentation-images">
             <div class="image-card">
-              <img src="photo/carte.png" alt="Carte de la ville">
+              <img src="carte.png" alt="Carte de la ville">
               <div class="image-caption">Plan de Montigny-lès-Cormeilles</div>
             </div>
           </div>
@@ -1001,7 +908,7 @@
         <div class="highlight">
           <p><strong>Note personnelle :</strong> Ce stage m'a permis de développer mes compétences techniques en environnement réel et de travailler en relation directe avec les agents de la commune.</p>
         </div>
-		<center style="margin-top: 2rem;">
+        <center style="margin-top: 2rem;">
           <a href="Rapport de stage.pdf" target="_blank" class="btn">
             <i class="fas fa-download"></i> Voir le Rapport de Stage
           </a>
@@ -1014,7 +921,7 @@
       <section id="stage2">
         <h2>Stage 2 : ITHI - Informatique Télécoms Hébergement et Infogérance</h2>
         <div class="logo-container">
-          <img src="informatique_ithi.png" alt="Logo ITHI" class="logo-img">
+          <img src="photo/informatique_ithi.png" alt="Logo ITHI" class="logo-img">
         </div>
         <p><strong>ITHI</strong> est une <strong>Entreprise de Services Numériques (ESN)</strong> fondée en 2006, spécialisée dans l'accompagnement des <strong>TPE, PME et collectivités</strong> dans leur transformation numérique.</p>
         
@@ -1076,19 +983,19 @@
 
           <div class="specs-card stage2-card">
             <img src="pfsense.png" alt="pfSense Logo" class="tool-img">
-            <h4> pfSense</h4>
+            <h4>pfSense</h4>
             <p>Pare-feu open source pour la sécurisation des réseaux. Configuration de règles, filtrage et sécurisation du routage.</p>
           </div>
 
           <div class="specs-card stage2-card">
-            <img src="tacticaL.png" alt="Tactical RMM Logo" class="tool-img">
-            <h4> Tactical RMM</h4>
+            <img src="tactical.png" alt="Tactical RMM Logo" class="tool-img">
+            <h4>Tactical RMM</h4>
             <p>Plateforme de supervision et d'assistance à distance pour la maintenance proactive des postes clients.</p>
           </div>
 
           <div class="specs-card stage2-card">
             <img src="sxipher.jpg" alt="SXIPHER Logo" class="tool-img">
-            <h4> SXIPHER</h4>
+            <h4>SXIPHER</h4>
             <p>Solution de sécurisation des accès et des données testée en interne et chez les clients.</p>
           </div>
         </div>
@@ -1137,7 +1044,6 @@
 
       <section>
         <h2>Différents contextes et une progression continue</h2>
-        
 
         <div class="comparaison-table-simple">
           <table>
@@ -1194,50 +1100,47 @@
 
   <footer id="contact">
     <div class="footer-content">
-      <p>© Copyright 2026 BEAGLE Jacky-Anaïs</strong></p>
+      <p>© Copyright 2026 BEAGLE Jacky-Anaïs</p>
     </div>
   </footer>
 
   <script>
-  // Navigation secondaire : affiche directement le bon stage
-  document.querySelectorAll('.stage-nav-links a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      document.querySelectorAll('.stage-content').forEach(content => {
-        content.classList.remove('active');
+    // Navigation secondaire : affiche directement le bon stage
+    document.querySelectorAll('.stage-nav-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        document.querySelectorAll('.stage-content').forEach(content => {
+          content.classList.remove('active');
+        });
+
+        if (this.getAttribute('href') === '#stage1') {
+          document.getElementById('stage1-content').classList.add('active');
+        } else if (this.getAttribute('href') === '#stage2') {
+          document.getElementById('stage2-content').classList.add('active');
+        }
+
+        document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
       });
-
-      if (this.getAttribute('href') === '#stage1') {
-        document.getElementById('stage1-content').classList.add('active');
-      } else if (this.getAttribute('href') === '#stage2') {
-        document.getElementById('stage2-content').classList.add('active');
-      }
-
-      document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
     });
-  });
 
-  // Animation d'apparition des sections
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
+    // Animation d'apparition des sections
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(section);
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-  document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(section);
-  });
-</script>
-
+  </script>
 
 </body>
-
 </html>
-

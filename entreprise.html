@@ -1218,52 +1218,43 @@
   </footer>
 
   <script>
-    document.querySelectorAll('.stage-tab').forEach(tab => {
-      tab.addEventListener('click', function() {
-        document.querySelectorAll('.stage-tab').forEach(t => {
-          t.classList.remove('active');
-        });
-        this.classList.add('active');
-        
-        document.querySelectorAll('.stage-content').forEach(content => {
-          content.classList.remove('active');
-        });
-        
-        const targetId = this.getAttribute('data-target');
-        document.getElementById(targetId).classList.add('active');
-        
-        document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
+  // Navigation secondaire : affiche directement le bon stage
+  document.querySelectorAll('.stage-nav-links a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      document.querySelectorAll('.stage-content').forEach(content => {
+        content.classList.remove('active');
       });
-    });
 
-    document.querySelectorAll('.stage-nav-links a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        if (this.getAttribute('href') === '#stage1') {
-          document.querySelector('.stage-tab[data-target="stage1-content"]').click();
-        } else if (this.getAttribute('href') === '#stage2') {
-          document.querySelector('.stage-tab[data-target="stage2-content"]').click();
-        }
-      });
-    });
+      if (this.getAttribute('href') === '#stage1') {
+        document.getElementById('stage1-content').classList.add('active');
+      } else if (this.getAttribute('href') === '#stage2') {
+        document.getElementById('stage2-content').classList.add('active');
+      }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    document.querySelectorAll('section').forEach(section => {
-      section.style.opacity = '0';
-      section.style.transform = 'translateY(20px)';
-      section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      observer.observe(section);
+      document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
     });
-  </script>
+  });
+
+  // Animation d'apparition des sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(section);
+  });
+</script>
+
 
 </body>
 

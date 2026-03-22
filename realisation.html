@@ -436,7 +436,7 @@
 <body>
 
   <nav class="top-nav" aria-label="Navigation supérieure">
-    <a href="index.html">Accueil</a>
+    <a href="jbportfolio.html">Accueil</a>
     <a href="entreprise.html">Entreprise</a>
     <a href="realisation.html">Réalisations professionnelles/Compétences</a>
     <a href="veille.html">Veille Technologique</a>
@@ -504,30 +504,31 @@
           </div>
         </div>
 
-        <!-- ── PROJET 2 : Proxy Squid ── -->
+        <!-- ── PROJET 2 : Proxy Squid cab1 ── -->
         <div class="project-card">
           <div class="project-number">02</div>
           <div class="project-header">
             <h4><i class="fas fa-filter"></i> Proxy filtrant Squid</h4>
-            <p>Authentification et filtrage web — Debian 12 / BTS SIO</p>
+            <p>Authentification et filtrage web — Conteneur cab1 / BTS SIO</p>
           </div>
           <div class="project-body">
-            <p><strong>Objectif :</strong> Mettre en place un proxy filtrant Squid sur Debian 12 (10.0.26.81) avec authentification par utilisateur et filtrage d'accès différencié, chaîné vers le proxy de sortie du serveur Tjener de l'établissement.</p>
+            <p><strong>Objectif :</strong> Déployer un proxy filtrant Squid dans un conteneur systemd-nspawn (cab1, IP fixe 10.63.101.70) hébergé sur PC2 Debian 12. Le proxy authentifie les utilisateurs et applique un filtrage d'accès différencié selon le profil.</p>
             <div class="project-tech">
               <span class="tech-tag">Debian 12</span>
               <span class="tech-tag">Squid</span>
+              <span class="tech-tag">systemd-nspawn</span>
               <span class="tech-tag">htpasswd</span>
               <span class="tech-tag">ACL</span>
               <span class="tech-tag">Réseau</span>
             </div>
             <div class="project-features">
               <ul>
-                <li>Installation et configuration de Squid sur Debian 12</li>
-                <li>Authentification Basic via htpasswd (utilisateurs toto et tata)</li>
+                <li>Conteneur cab1 avec IP fixe 10.63.101.70</li>
+                <li>Superutilisateur projet2 — administration du conteneur</li>
+                <li>Authentification Basic via htpasswd (toto / tata)</li>
                 <li>Filtrage différencié par utilisateur (ACL Squid)</li>
                 <li>Chaînage vers le proxy Tjener (10.0.2.2:3128)</li>
-                <li>Tests curl — codes 407, 403, 301, 302</li>
-                <li>Analyse des logs d'accès Squid</li>
+                <li>Tests curl depuis cab1 et depuis PC1</li>
               </ul>
             </div>
           </div>
@@ -778,7 +779,7 @@
 
     <!-- ════ BILAN ════ -->
     <section id="bilan">
-      <h2><i class="fas fa-chart-line"></i> Bilan </h2>
+      <h2><i class="fas fa-chart-line"></i> Bilan des Réalisations</h2>
       <div class="conclusion">
         <h3><i class="fas fa-award"></i> Synthèse des Compétences Acquises</h3>
         <p style="color:white;opacity:0.95;">Ces projets couvrent l'ensemble des compétences attendues dans le BTS SIO, avec une spécialisation en infrastructure, systèmes et réseaux (option SISR). Chaque réalisation démontre ma capacité à :</p>
@@ -789,6 +790,7 @@
           <li>Gérer un projet de A à Z avec méthodologie</li>
           <li>Adapter mes compétences à différents contextes techniques</li>
         </ul>
+        <p style="color:white;font-weight:600;margin-top:20px;"><strong>Ces réalisations constituent une preuve concrète de ma capacité à intégrer le monde professionnel en tant qu'administrateur systèmes et réseaux.</strong></p>
       </div>
     </section>
 
@@ -854,12 +856,13 @@
         <h3><i class="fas fa-download"></i> Documentation du projet</h3>
         <div class="download-section">
           <h3><i class="fas fa-file-pdf"></i> Télécharger la documentation</h3>
-          <p>Consultez ou téléchargez le rapport complet du projet : configurations, captures d'écran et preuves de fonctionnement.</p>
+          <p>Rapport complet du TP avec captures d'écran, schéma réseau, configurations et preuves de fonctionnement.</p>
           <div class="download-grid">
-            <a class="download-btn" href="rapportAdmin.pdf" download>
+            <a class="download-btn" href="rapport_technova_final.pdf" download>
               <div class="btn-icon"><i class="fas fa-file-pdf"></i></div>
               <div class="btn-text">
-                <span class="btn-title">Documentation</s>
+                <span class="btn-title">Rapport du projet TechNova</span>
+                <span class="btn-sub">PDF — Infrastructure Linux Debian 12</span>
               </div>
             </a>
           </div>
@@ -872,47 +875,48 @@
     </div>
   </div>
 
-  <!-- ════ MODAL PROJET 2 — Proxy Squid ════ -->
+  <!-- ════ MODAL PROJET 2 — Proxy Squid cab1 ════ -->
   <div id="modal2" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h3><i class="fas fa-filter"></i> Proxy filtrant Squid — Debian 12 / BTS SIO</h3>
+        <h3><i class="fas fa-filter"></i> Proxy filtrant Squid — Conteneur cab1 / BTS SIO</h3>
         <button class="close-modal" onclick="closeModal('modal2')">&times;</button>
       </div>
       <div class="modal-body">
 
         <div class="project-badge">
-          <i class="fas fa-puzzle-piece"></i> Projet E5 BTS SIO SISR — Administration Réseau Debian 12
+          <i class="fas fa-puzzle-piece"></i> Projet E6 BTS SIO SISR — Proxy Squid dans un conteneur systemd-nspawn
         </div>
 
         <!-- OBJECTIF -->
         <h3><i class="fas fa-bullseye"></i> Objectif du projet</h3>
-        <p>Mise en place d'un proxy filtrant Squid sur mon PC Debian 12 (10.0.26.81) dans l'environnement réseau du BTS (10.0.0.0/8). Le proxy gère l'authentification des utilisateurs et le filtrage d'accès différencié, puis chaîne les requêtes vers le proxy de sortie du serveur Tjener (10.0.2.2:3128) de l'établissement. Tout est réalisé uniquement en ligne de commande.</p>
+        <p>Dans le cadre du BTS SIO option SISR, j'ai déployé un proxy filtrant Squid à l'intérieur d'un conteneur systemd-nspawn (cab1) hébergé sur mon PC2 Debian 12 en salle E63. Le conteneur dispose d'une adresse IP fixe (10.63.101.70), garantissant une adresse proxy stable pour tous les postes du réseau. Le proxy authentifie obligatoirement les utilisateurs et applique des règles de filtrage différenciées selon le profil. L'ensemble est réalisé en ligne de commande en tant que projet2, superutilisateur du conteneur.</p>
 
-        <!-- SERVICES DÉPLOYÉS -->
+        <!-- COMPOSANTS -->
         <h3><i class="fas fa-cogs"></i> Composants déployés</h3>
         <div style="margin:10px 0 20px 0;">
-          <span class="service-badge badge-squid"><i class="fas fa-filter"></i> Squid 5.7 — Port 3128</span>
+          <span class="service-badge badge-squid"><i class="fas fa-box"></i> systemd-nspawn — Conteneur cab1</span>
+          <span class="service-badge badge-squid"><i class="fas fa-filter"></i> Squid 6.13 — Port 3128</span>
           <span class="service-badge badge-squid"><i class="fas fa-key"></i> htpasswd — Auth Basic</span>
           <span class="service-badge badge-squid"><i class="fas fa-ban"></i> ACL — Filtrage par domaine</span>
-          <span class="service-badge badge-squid"><i class="fas fa-link"></i> cache_peer — Chaînage Tjener</span>
         </div>
 
-        <!-- ARCHITECTURE RÉSEAU -->
-        <h3><i class="fas fa-sitemap"></i> Architecture réseau simplifiée</h3>
+        <!-- ARCHITECTURE -->
+        <h3><i class="fas fa-sitemap"></i> Architecture réseau</h3>
         <div class="architecture-grid">
           <div class="arch-card">
-            <h4><i class="fas fa-laptop"></i> Mon PC — PC2</h4>
-            <div class="ip-address">10.0.26.81</div>
+            <h4><i class="fas fa-laptop"></i> PC2 — Machine hôte</h4>
+            <div class="ip-address">DHCP</div>
             <p><strong>Salle :</strong> E63</p>
-            <p><strong>Service :</strong> Squid :3128</p>
-            <p><strong>Utilisateurs :</strong> toto / tata</p>
+            <p><strong>Utilisateur :</strong> anabea@am-6451063e564c</p>
+            <p><strong>Héberge :</strong> /var/lib/machines/cab1</p>
           </div>
           <div class="arch-card">
-            <h4><i class="fas fa-network-wired"></i> Switch LAN</h4>
-            <div class="ip-address">10.0.0.1</div>
-            <p><strong>Réseau :</strong> 10.0.0.0/8</p>
-            <p><strong>Connecté à :</strong> PC1, PC2, Tjener</p>
+            <h4><i class="fas fa-cube"></i> Conteneur cab1</h4>
+            <div class="ip-address">10.63.101.70</div>
+            <p><strong>Admin :</strong> projet2 (sudo)</p>
+            <p><strong>Service :</strong> Squid :3128</p>
+            <p><strong>Utilisateurs :</strong> toto / tata</p>
           </div>
           <div class="arch-card">
             <h4><i class="fas fa-server"></i> Tjener — Proxy sortie</h4>
@@ -923,7 +927,7 @@
           </div>
         </div>
         <p style="text-align:center;font-weight:600;color:var(--marron-fonce);margin:10px 0 20px;">
-          Flux : Client → Squid PC2 (10.0.26.81:3128) → Tjener (10.0.2.2:3128) → Internet
+          Flux : Client → Squid cab1 (10.63.101.70:3128) → Tjener (10.0.2.2:3128) → Internet
         </p>
 
         <!-- UTILISATEURS -->
@@ -945,7 +949,7 @@
           </div>
         </div>
 
-        <!-- TABLEAU RÉCAP FILTRAGE -->
+        <!-- TABLEAU RÉCAP -->
         <h3><i class="fas fa-table"></i> Tableau récapitulatif des droits</h3>
         <table class="filter-table">
           <thead>
@@ -980,109 +984,26 @@
           </tbody>
         </table>
 
-        <!-- COMMANDES CLÉS -->
-        <h3><i class="fas fa-terminal"></i> Étapes de configuration</h3>
-        <div class="step-container">
-          <div class="step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-              <h4>Installation de Squid et htpasswd</h4>
-              <div class="code-block"><code>
-<span class="command">apt update</span> &amp;&amp; <span class="command">apt install</span> squid apache2-utils -y<br>
-<span class="command">systemctl enable</span> squid
-              </code></div>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-              <h4>Création des utilisateurs système et proxy</h4>
-              <div class="code-block"><code>
-<span class="command">adduser</span> toto &amp;&amp; <span class="command">adduser</span> tata<br>
-<span class="command">htpasswd</span> -c /etc/squid/passwd toto<br>
-<span class="command">htpasswd</span> /etc/squid/passwd tata
-              </code></div>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-              <h4>Listes de sites bloqués</h4>
-              <div class="code-block"><code>
-<span class="comment"># /etc/squid/blocked_sites.txt (tous)</span><br>
-facebook.com | instagram | tiktok.com | x.com<br><br>
-<span class="comment"># /etc/squid/blocked_tata.txt (tata uniquement)</span><br>
-youtube.com | twitch.tv
-              </code></div>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-number">4</div>
-            <div class="step-content">
-              <h4>Configuration squid.conf</h4>
-              <div class="code-block"><code>
-<span class="command">http_port</span> 3128<br>
-auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwd<br>
-auth_param basic realm <span class="comment">"Proxy BTS"</span><br><br>
-acl utilisateurs_auth proxy_auth REQUIRED<br>
-acl user_tata         proxy_auth tata<br>
-acl sites_bloques     dstdomain <span class="comment">"/etc/squid/blocked_sites.txt"</span><br>
-acl sites_bloques_tata dstdomain <span class="comment">"/etc/squid/blocked_tata.txt"</span><br><br>
-http_access deny sites_bloques<br>
-http_access deny user_tata sites_bloques_tata<br>
-http_access allow utilisateurs_auth bts_network<br>
-http_access deny all<br><br>
-<span class="comment"># Chaînage vers le Tjener</span><br>
-cache_peer 10.0.2.2 parent 3128 0 no-query default<br>
-never_direct allow all
-              </code></div>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-number">5</div>
-            <div class="step-content">
-              <h4>Tests de validation</h4>
-              <div class="code-block"><code>
-<span class="comment"># Sans auth → 407</span><br>
-<span class="command">curl</span> -x http://10.0.26.81:3128 -I http://debian.org<br><br>
-<span class="comment"># toto facebook → 403 bloqué</span><br>
-<span class="command">curl</span> -x http://toto:toto@10.0.26.81:3128 -I http://facebook.com<br><br>
-<span class="comment"># tata youtube → 403 bloqué</span><br>
-<span class="command">curl</span> -x http://tata:tata@10.0.26.81:3128 -I http://youtube.com<br><br>
-<span class="comment"># Analyse des logs</span><br>
-grep <span class="comment">" toto "</span> /var/log/squid/access.log | awk <span class="comment">'{print $7}'</span> | sort | uniq -c
-              </code></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- LIMITE HTTPS -->
-        <h3><i class="fas fa-exclamation-triangle"></i> Limite identifiée — HTTPS</h3>
-        <div style="background:var(--beige);border-left:5px solid var(--marron-moyen);border-radius:8px;padding:18px;margin:10px 0 20px;">
-          <p style="margin:0;color:var(--texte-fonce);">Squid ne filtre pas le trafic <strong>HTTPS</strong> par défaut car il est chiffré de bout en bout. Les navigateurs modernes forçant le HTTPS, le filtrage navigateur reste inefficace. La solution serait le <strong>SSL Bump</strong> (interception SSL avec certificat propre) — perspective d'amélioration hors périmètre de ce TP.</p>
-        </div>
-
         <!-- DOCUMENTATION -->
         <h3><i class="fas fa-folder-open"></i> Documentation du projet</h3>
         <div class="download-section">
-          <h3><i class="fas fa-file-pdf"></i> Documentation Projet — Proxy Squid</h3>
-          <p>Consultez ou téléchargez le rapport complet du projet : configurations, captures d'écran et preuves de fonctionnement.</p>
+          <h3><i class="fas fa-file-pdf"></i> Documentation complète — Proxy Squid cab1</h3>
+          <p>Rapport complet avec schémas réseau, captures d'écran de chaque étape et preuves de fonctionnement (codes HTTP 407/403/301/302).</p>
           <div class="download-grid">
-            <a class="download-btn" href="projet2squid.pdf" target="_blank">
+            <a class="download-btn" href="squidoc.pdf" target="_blank">
               <div class="btn-icon"><i class="fas fa-file-pdf"></i></div>
               <div class="btn-text">
-                <span class="btn-title">Documentation</span>
-                <span class="btn-sub">Cliquer pour consulter le PDF</span>
+                <span class="btn-title">Documentation Proxy Squid</span>
+                <span class="btn-sub">PDF — BTS SIO SISR — Mars 2026</span>
               </div>
             </a>
           </div>
         </div>
 
-
         <div class="conclusion">
           <h4><i class="fas fa-award"></i> Bilan du projet</h4>
-          <p>Ce projet E5 m'a permis de déployer un proxy filtrant Squid fonctionnel sur le réseau réel du BTS. L'authentification Basic via htpasswd fonctionne, le filtrage différencié par utilisateur est opérationnel, et le chaînage vers le Tjener est confirmé par les en-têtes Via dans les réponses HTTP.</p>
-          <p style="margin-top:15px;"><strong>Résultat clé :</strong> curl retourne 407 sans auth, 403 sur les sites bloqués, 301/302 sur les sites autorisés — preuve complète que la chaîne Squid → Tjener → Internet fonctionne de bout en bout.</p>
+          <p>Le proxy filtrant Squid est opérationnel dans le conteneur cab1 (10.63.101.70:3128), accessible depuis tous les postes du réseau BTS. L'authentification Basic fonctionne (407 sans auth), le filtrage différencié est prouvé par les codes HTTP (403/301/302), et le chaînage vers le Tjener est confirmé par les en-têtes Via et par FIRSTUP_PARENT/10.0.2.2 dans les logs.</p>
+          <p style="margin-top:15px;"><strong>Limite identifiée :</strong> Squid ne filtre pas le HTTPS nativement — la solution serait le SSL Bump (hors périmètre de ce projet).</p>
         </div>
 
       </div>
@@ -1099,7 +1020,7 @@ grep <span class="comment">" toto "</span> /var/log/squid/access.log | awk <span
     <i class="fas fa-arrow-up"></i>
   </div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── Modals ──
     function openModal(id) { document.getElementById(id).style.display='block'; document.body.style.overflow='hidden'; }
     function closeModal(id) { document.getElementById(id).style.display='none'; document.body.style.overflow='auto'; }
@@ -1163,15 +1084,4 @@ grep <span class="comment">" toto "</span> /var/log/squid/access.log | awk <span
       e.preventDefault();
       document.getElementById('upload-zone-squid').classList.add('drag-over');
     }
-    function dragLeave(e) {
-      document.getElementById('upload-zone-squid').classList.remove('drag-over');
-    }
-    function dropFile(e) {
-      e.preventDefault();
-      document.getElementById('upload-zone-squid').classList.remove('drag-over');
-      const file = e.dataTransfer.files[0];
-      if (file) showUploadedFile(file);
-    }
-  </script>
-</body>
-</html>
+    function dragLeave(e)
